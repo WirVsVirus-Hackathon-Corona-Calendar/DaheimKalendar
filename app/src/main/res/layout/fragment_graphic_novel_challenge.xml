@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.graphicnovel.GraphicNovelChallengeFragment">
+
+    <ImageView
+        android:id="@+id/graphicNovelBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/castle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/grapicNovelTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/graphic_novel_challenge_title"
+        android:textAppearance="@style/GraphicNovelHeadline"
+        app:layout_constraintBottom_toTopOf="@id/grapicNovelBody"
+        app:layout_constraintEnd_toStartOf="@id/graphicNovelStoryTeller"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <TextView
+        android:id="@+id/grapicNovelBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lorem_ipsum"
+        android:gravity="center"
+        android:background="@drawable/graphic_novel_body_background"
+        android:padding="15dp"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_first"
+        app:layout_constraintEnd_toStartOf="@id/graphicNovelStoryTeller"
+        app:layout_constraintHorizontal_weight="3" />
+
+    <ImageView
+        android:id="@+id/graphicNovelStoryTeller"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/dog"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_first"
+        app:layout_constraintStart_toEndOf="@id/grapicNovelBody"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitEnd"
+        />
+
+    <Button
+        android:id="@+id/button_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/i_am_done"
+        android:background="@drawable/graphic_novel_button_background"
+        android:layout_margin="10dp"
+        android:minWidth="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
