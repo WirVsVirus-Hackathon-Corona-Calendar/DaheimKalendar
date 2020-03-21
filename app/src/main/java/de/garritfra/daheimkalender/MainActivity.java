@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements ChallengeTagebuch
 
         ChallengeTagebuchFragment fragmentTagebuch = new ChallengeTagebuchFragment();
         TodayChallFragment fragmentToday = new TodayChallFragment();
-        fragmentTransaction.add(R.id.frame, fragmentTagebuch);
         fragmentTransaction.add(R.id.frame, fragmentToday);
+        fragmentTransaction.add(R.id.frame, fragmentTagebuch);
         fragmentTransaction.commit();
     }
 
