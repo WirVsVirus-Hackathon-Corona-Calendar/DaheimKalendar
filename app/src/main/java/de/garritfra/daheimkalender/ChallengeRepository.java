@@ -122,7 +122,7 @@ public class ChallengeRepository {
     }
 
     public Challenge getTodaysChallenge() {
-        return realm.where(Challenge.class).equalTo("dateStart", new Date()).findFirst();
+        return realm.where(Challenge.class).equalTo("dateStart", new Date().getTime()).findFirst();
     }
 
     public void updateOne(final Challenge challenge) {
