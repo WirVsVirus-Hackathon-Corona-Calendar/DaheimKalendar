@@ -6,6 +6,7 @@
     <color name="green">#00FF00</color>
     <color name="nebulaWhite">#DDFAFAFA</color>
     <color name="primaryYellow">#FFAC07</color>
+    <color name="primaryRed">#EC573F</color>
     <color name="primaryWhite">#FFFFFF</color>
 
     <color name="black_overlay">#66000000</color>

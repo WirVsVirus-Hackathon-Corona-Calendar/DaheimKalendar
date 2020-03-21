@@ -15,10 +15,11 @@ public class Challenge extends RealmObject {
     private String iconUrl;
 
     // TODO: Date/Calendar/long?
-    @SerializedName("date_start")
-    private long dateStart;
-    @SerializedName("date_end")
-    private long dateEnd;
+    @SerializedName("completion_date")
+    private long completionDate;
+    @SerializedName("order")
+    private int order;
+    private boolean isCompleted = false;
 
     public Challenge() {
 
@@ -62,23 +63,29 @@ public class Challenge extends RealmObject {
         return iconUrl;
     }
 
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) { this.order = order; }
+
     public void setIconUrl(String iconUrl) {
         this.iconUrl = iconUrl;
     }
 
-    public long getDateStart() {
-        return dateStart;
+    public long getCompletionDate() {
+        return completionDate;
     }
 
-    public void setDateStart(long dateStart) {
-        this.dateStart = dateStart;
+    public void setCompletionDate(long completionDate) {
+        this.completionDate = completionDate;
     }
 
-    public long getDateEnd() {
-        return dateEnd;
+    public boolean getCompleted() {
+        return isCompleted;
     }
 
-    public void setDateEnd(long dateEnd) {
-        this.dateEnd = dateEnd;
+    public void setCompleted(Boolean completed) {
+        this.isCompleted = completed;
     }
 }
