@@ -1,17 +1,17 @@
 package de.garritfra.daheimkalender.ui;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import de.garritfra.daheimkalender.R;
-import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment.OnListFragmentInteractionListener;
-import de.garritfra.daheimkalender.ui.dummy.DummyContent.Challenge;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import de.garritfra.daheimkalender.R;
+import de.garritfra.daheimkalender.model.Challenge;
+import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment.OnListFragmentInteractionListener;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Challenge} and makes a call to the
@@ -38,8 +38,8 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getId());
+        holder.mContentView.setText(mValues.get(position).getBody());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
