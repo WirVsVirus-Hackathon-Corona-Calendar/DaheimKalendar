@@ -1,6 +1,8 @@
 package de.garritfra.daheimkalender;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,8 +20,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 
@@ -49,6 +55,27 @@ public class MainActivity extends AppCompatActivity {
                 openAgeCheck();
             }
         });
+
+        BottomNavigationView navView = findViewById(R.id.bottom_navigation);
+        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment selectedFragment = null;
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_today:
+                        //TODO: navigate to todays challenge
+                        // selectedFragment = new TodayFragment()
+                        break;
+                    case R.id.nav_history:
+                        //TODO: navigate to challenge history
+                        // selectedFragment = new HistoryFragment()
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment, selectedFragment).commit();
+                return true;
+            }
+        });
+
     }
 
     private void openGraphicNovel() {
@@ -67,5 +94,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, OnboardingActivity.class);
         startActivity(intent);
     }
-
 }
