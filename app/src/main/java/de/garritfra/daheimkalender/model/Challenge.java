@@ -1,33 +1,38 @@
 package de.garritfra.daheimkalender.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Challenge extends RealmObject {
 
     @PrimaryKey
-    private int id;
+    private String id;
     private String title;
     private String body;
+    @SerializedName("icon_url")
     private String iconUrl;
 
     // TODO: Date/Calendar/long?
+    @SerializedName("date_start")
     private long dateStart;
+    @SerializedName("date_end")
     private long dateEnd;
 
     public Challenge() {
 
     }
 
-    public Challenge(int id) {
+    public Challenge(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

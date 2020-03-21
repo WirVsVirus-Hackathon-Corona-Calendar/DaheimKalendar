@@ -1,21 +1,46 @@
 package de.garritfra.daheimkalender;
 
+import android.util.Log;
+
+import com.google.gson.Gson;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.util.LinkedList;
+
 import java.util.Date;
 
 import de.garritfra.daheimkalender.model.Challenge;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmList;
 import io.realm.RealmResults;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ChallengeRepository {
 
     private static ChallengeRepository sharedInstance = new ChallengeRepository();
 
+    RealmConfiguration config = new RealmConfiguration.Builder()
+            .name("default.realm")
+            .schemaVersion(1)
+            .deleteRealmIfMigrationNeeded()
+            .build();
+
     private Realm realm;
+
+    private final String challengeBaseURL = "https://e3bzj7x3ck.execute-api.eu-west-1.amazonaws.com/v1/challenges";
 
     public ChallengeRepository() {
         super();
-        realm = Realm.getDefaultInstance().getDefaultInstance();
+        realm = Realm.getInstance(config);
+
+        update();
     }
 
     public static ChallengeRepository getInstance() {
@@ -25,6 +50,29 @@ public class ChallengeRepository {
         } else {
             return sharedInstance;
         }
+    }
+
+    public void update() {
+        final OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://e3bzj7x3ck.execute-api.eu-west-1.amazonaws.com/v1/challenges")
+                .build();
+
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                Log.e("E", String.valueOf(e.getStackTrace()));
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                Challenge[] fetchedChallenges = new Gson().fromJson(response.body().string(), Challenge[].class);
+                for (Challenge challenge : fetchedChallenges) {
+                    updateOne(challenge);
+                }
+            }
+        });
     }
 
     void createOne(final Challenge challenge) throws Error {
