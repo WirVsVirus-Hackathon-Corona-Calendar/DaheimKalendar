@@ -14,8 +14,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Realm.init(this);
         setContentView(R.layout.activity_main);
-        ChallengeRepository.getInstance().createOne(new Challenge(123));
-        ChallengeRepository.getInstance().createOne(new Challenge(234));
-        System.out.println("Malte");
     }
 }
