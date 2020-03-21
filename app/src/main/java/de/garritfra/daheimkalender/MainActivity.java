@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
+import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment;
-import de.garritfra.daheimkalender.ui.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity implements ChallengeTagebuchFragment.OnListFragmentInteractionListener {
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements ChallengeTagebuch
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.Challenge item) {
+    public void onListFragmentInteraction(Challenge item) {
 
     }
 }

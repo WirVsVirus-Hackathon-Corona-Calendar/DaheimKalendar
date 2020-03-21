@@ -3,22 +3,24 @@ package de.garritfra.daheimkalender.ui;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 import de.garritfra.daheimkalender.R;
-import de.garritfra.daheimkalender.ui.dummy.DummyContent;
-import de.garritfra.daheimkalender.ui.dummy.DummyContent.Challenge;
+import de.garritfra.daheimkalender.model.Challenge;
 
 /**
  * A fragment representing a list of Items.
@@ -33,6 +35,10 @@ public class ChallengeTagebuchFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 3;
     private OnListFragmentInteractionListener mListener;
+    boolean mOld = true;
+    private ConstraintSet constraintSet1;
+    private ConstraintSet constraintSet2;
+    private ConstraintLayout constraintLayout;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -63,27 +69,46 @@ public class ChallengeTagebuchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_challenge_tagebuch_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_challenge_tagebuch_1, container, false);
+
+        constraintLayout = view.findViewById(R.id.constraint);
+        //Animations Test Zeug
+        final ConstraintLayout mConstraintLayout = view.findViewById(R.id.constraint);
+         mOld = false;
+        constraintSet1 = new ConstraintSet();
+        constraintSet1.clone(getActivity(), R.layout.fragment_challenge_tagebuch_1);
+        constraintSet2 = new ConstraintSet();
+        constraintSet2.clone(getActivity(), R.layout.fragment_challenge_tagebuch_2);
 
         List challenges = new LinkedList();
-        challenges.add(new Challenge("1" , "Test", "Test Details"));
-        challenges.add(new Challenge("1" , "Test", "Test Details"));
-        challenges.add(new Challenge("1" , "Test", "Test Details"));
+        Challenge challenge = new Challenge();
+        challenge.setId(1);
+        challenges.add(challenge);
+
+        Button button = view.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TransitionManager.beginDelayedTransition(constraintLayout);
+                if (mOld = !mOld) {
+                    constraintSet1.applyTo(constraintLayout); // set new constraints
+                }  else {
+                    constraintSet2.applyTo(constraintLayout); // set new constraints
+                }
+            }
+        });
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            RecyclerView recyclerView = view.findViewById(R.id.list);
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new ChallengeRecyclerViewAdapter(challenges, mListener));
-        }
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {

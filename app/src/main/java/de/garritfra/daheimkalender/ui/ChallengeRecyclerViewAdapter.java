@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.garritfra.daheimkalender.R;
+import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment.OnListFragmentInteractionListener;
-import de.garritfra.daheimkalender.ui.dummy.DummyContent.Challenge;
 
 import java.util.List;
 
@@ -38,8 +38,8 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(Integer.toString(mValues.get(position).getId()));
+        //holder.mContentView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
