@@ -71,8 +71,12 @@ public class MainActivity extends AppCompatActivity {
                         // selectedFragment = new HistoryFragment()
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment, selectedFragment).commit();
-                return true;
+                if (selectedFragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment, selectedFragment).commit();
+                    return true;
+                } else {
+                    return false;
+                }
             }
         });
 
