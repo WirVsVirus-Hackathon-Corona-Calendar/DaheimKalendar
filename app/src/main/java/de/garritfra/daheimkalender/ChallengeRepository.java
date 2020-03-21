@@ -1,5 +1,7 @@
 package de.garritfra.daheimkalender;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -53,6 +55,8 @@ public class ChallengeRepository {
     }
 
     public void update() {
+
+
         final OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://e3bzj7x3ck.execute-api.eu-west-1.amazonaws.com/v1/challenges")
@@ -66,11 +70,20 @@ public class ChallengeRepository {
             }
 
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                Challenge[] fetchedChallenges = new Gson().fromJson(response.body().string(), Challenge[].class);
-                for (Challenge challenge : fetchedChallenges) {
-                    updateOne(challenge);
-                }
+            public void onResponse(@NotNull Call call, @NotNull final Response response) throws IOException {
+                final Challenge[] fetchedChallenges = new Gson().fromJson(response.body().string(), Challenge[].class);
+
+                new Handler(Looper.getMainLooper()).post(new Runnable() { // <-- if you are not on UI thread and want to go there
+                    @Override
+                    public void run() {
+                        for (Challenge challenge : fetchedChallenges) {
+                            updateOne(challenge);
+                            Log.d("CHALLENGE", challenge.toString());
+                        }
+                    }
+                });
+
+
             }
         });
     }
