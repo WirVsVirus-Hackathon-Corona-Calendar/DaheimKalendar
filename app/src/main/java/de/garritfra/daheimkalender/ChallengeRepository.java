@@ -9,8 +9,6 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.LinkedList;
-
 import java.util.Date;
 
 import de.garritfra.daheimkalender.model.Challenge;
@@ -88,7 +86,7 @@ public class ChallengeRepository {
         });
     }
 
-    void createOne(final Challenge challenge) throws Error {
+    public void createOne(final Challenge challenge) throws Error {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -97,7 +95,7 @@ public class ChallengeRepository {
         });
     }
 
-    void createMultiple(final RealmList<Challenge> challenges) {
+    public void createMultiple(final RealmList<Challenge> challenges) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -106,27 +104,27 @@ public class ChallengeRepository {
         });
     }
 
-    Challenge readOneById(int id) {
+    public Challenge readOneById(String id) {
         return realm.where(Challenge.class).equalTo("id", id).findFirst();
     }
 
-    RealmResults<Challenge> readManyByIds(String[] ids) {
+    public RealmResults<Challenge> readManyByIds(String[] ids) {
         return realm.where(Challenge.class).findAll();
     }
 
-    RealmResults<Challenge> readAll() {
+    public RealmResults<Challenge> readAll() {
         return realm.where(Challenge.class).findAll();
     }
 
-    RealmResults<Challenge> getChallengesBefore(Date date) {
+    public RealmResults<Challenge> getChallengesBefore(Date date) {
         return realm.where(Challenge.class).lessThan("dateStart", date).findAll();
     }
 
-    Challenge getTodaysChallenge() {
+    public Challenge getTodaysChallenge() {
         return realm.where(Challenge.class).equalTo("dateStart", new Date()).findFirst();
     }
 
-    void updateOne(final Challenge challenge) {
+    public void updateOne(final Challenge challenge) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -135,7 +133,7 @@ public class ChallengeRepository {
         });
     }
 
-    void updateMany(final RealmList<Challenge> challenges) {
+    public void updateMany(final RealmList<Challenge> challenges) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -144,7 +142,7 @@ public class ChallengeRepository {
         });
     }
 
-    void delete(final Challenge challenge) {
+    public void delete(final Challenge challenge) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -153,7 +151,7 @@ public class ChallengeRepository {
         });
     }
 
-    void deleteMany(final RealmList<Challenge> challenges) {
+    public void deleteMany(final RealmList<Challenge> challenges) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -162,7 +160,7 @@ public class ChallengeRepository {
         });
     }
 
-    void deleteAll() {
+    public void deleteAll() {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -171,7 +169,7 @@ public class ChallengeRepository {
         });
     }
 
-    void close() {
+    public void close() {
         realm.close();
     }
 

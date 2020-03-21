@@ -22,6 +22,8 @@ public class GraphicNovelChallengeFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+
+        mChallenge = ((GraphicNovelActivity) getContext()).challenge;
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_graphic_novel_challenge, container, false);
     }
@@ -37,7 +39,7 @@ public class GraphicNovelChallengeFragment extends Fragment {
         if (mChallenge != null) {
             TextView headline = view.findViewById(R.id.grapicNovelTitle);
             headline.setText(mChallenge.getTitle());
-            TextView body = view.findViewById(R.id.graphicNovelBody);
+            TextView body = view.findViewById(R.id.graphicNovelBodyText);
             body.setText(mChallenge.getBody());
             //TODO: check for further details to add
         }

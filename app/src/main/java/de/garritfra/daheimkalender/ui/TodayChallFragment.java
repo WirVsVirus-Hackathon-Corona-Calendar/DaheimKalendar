@@ -50,12 +50,20 @@ public class TodayChallFragment extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), GraphicNovelActivity.class);
-                getContext().startActivity(intent);
+                openGraphicNovel();
 
             }
         });
 
         return view;
+    }
+
+    private void openGraphicNovel() {
+        Intent intent = new Intent(getContext(), GraphicNovelActivity.class);
+        Bundle bundle = new Bundle();
+        //TODO add correct challenged Id here
+        bundle.putString(GraphicNovelActivity.challengeId, "aff437cc-97f9-49b7-8efa-a8edf5feed96");
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

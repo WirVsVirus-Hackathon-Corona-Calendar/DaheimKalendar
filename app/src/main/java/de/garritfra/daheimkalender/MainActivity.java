@@ -61,12 +61,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GraphicNovelActivity.class);
         Bundle bundle = new Bundle();
         //TODO add correct challenged Id here
-        bundle.putInt(GraphicNovelActivity.challengeId, -1);
+        bundle.putString(GraphicNovelActivity.challengeId, "aff437cc-97f9-49b7-8efa-a8edf5feed96");
         intent.putExtras(bundle);
         startActivity(intent);
-
-
-
     }
 
     private void openAgeCheck() {
