@@ -3,6 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="today_challenge">Heutige Challenge!</string>
+    <string name="click_here">Hier Klicken</string>
     <string name="title_activity_graphic_novel">GraphicNovelActivity</string>
 
     <string name="first_fragment_label">First Fragment</string>
@@ -22,4 +23,5 @@
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="your_challenge_today">Dein heutiges Abenteuer </string>
 </resources>
