@@ -6,7 +6,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment;
+import de.garritfra.daheimkalender.ui.dummy.DummyContent;
+
+public class MainActivity extends AppCompatActivity implements ChallengeTagebuchFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +19,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        TodayChallFragment fragmentToday = new TodayChallFragment();
-        fragmentTransaction.add(R.id.frame, fragmentToday);
+        ChallengeTagebuchFragment fragment = new ChallengeTagebuchFragment();
+        fragmentTransaction.add(R.id.frame, fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.Challenge item) {
+
     }
 }
