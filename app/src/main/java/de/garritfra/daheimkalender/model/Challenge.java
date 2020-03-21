@@ -1,7 +1,11 @@
 package de.garritfra.daheimkalender.model;
 
-public class Challenge {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
+public class Challenge extends RealmObject {
+
+    @PrimaryKey
     private int id;
     private String title;
     private String body;
@@ -11,6 +15,13 @@ public class Challenge {
     private long dateStart;
     private long dateEnd;
 
+    public Challenge() {
+
+    }
+
+    public Challenge(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;

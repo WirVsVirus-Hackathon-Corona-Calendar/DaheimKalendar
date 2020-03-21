@@ -9,11 +9,15 @@ import android.widget.Button;
 
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 
+import de.garritfra.daheimkalender.model.Challenge;
+import io.realm.Realm;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Realm.init(this);
         setContentView(R.layout.activity_main);
 
         Button openGraphicNovelBtn = findViewById(R.id.btn_open_graphic_novel);
