@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         setContentView(R.layout.activity_main);
 
-        ChallengeRepository.getInstance().update();
-
         Button openGraphicNovelBtn = findViewById(R.id.btn_open_graphic_novel);
         openGraphicNovelBtn.setOnClickListener(new View.OnClickListener() {
             @Override

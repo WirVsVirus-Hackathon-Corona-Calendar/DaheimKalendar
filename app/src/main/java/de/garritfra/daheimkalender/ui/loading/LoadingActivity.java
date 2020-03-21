@@ -11,14 +11,16 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.MainActivity;
 import de.garritfra.daheimkalender.R;
+import io.realm.Realm;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class LoadingActivity extends AppCompatActivity {
+public class LoadingActivity extends AppCompatActivity implements ChallengeRepository.OnUpdateFinishedListener {
 
     /**
      * Some older devices needs a small delay between UI widget updates
@@ -30,21 +32,18 @@ public class LoadingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Realm.init(this);
+
         Thread welcomeThread = new Thread() {
 
             @Override
             public void run() {
                 try {
                     super.run();
-                    sleep(2000);
+
+                    ChallengeRepository.getInstance().update(LoadingActivity.this);
                 } catch (Exception e) {
 
-                } finally {
-
-                    Intent i = new Intent(LoadingActivity.this,
-                            MainActivity.class);
-                    startActivity(i);
-                    finish();
                 }
             }
         };
@@ -55,5 +54,12 @@ public class LoadingActivity extends AppCompatActivity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
+    }
+
+    @Override
+    public void onUpdateFinished() {
+        Intent i = new Intent(LoadingActivity.this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }
