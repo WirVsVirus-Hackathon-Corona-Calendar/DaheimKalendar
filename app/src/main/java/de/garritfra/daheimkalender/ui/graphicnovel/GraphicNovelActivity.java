@@ -1,25 +1,36 @@
 package de.garritfra.daheimkalender.ui.graphicnovel;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
 
 import de.garritfra.daheimkalender.R;
 
 public class GraphicNovelActivity extends AppCompatActivity {
 
+    public static final String challengeId = "challengeId";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphic_novel);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            int challengeId = bundle.getInt(GraphicNovelActivity.challengeId, -1);
+            //TODO: Get Challenge
+        }
+
+        ImageButton closeBtn = findViewById(R.id.btn_graphic_novel_close);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
