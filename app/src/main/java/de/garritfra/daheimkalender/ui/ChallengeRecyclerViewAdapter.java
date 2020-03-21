@@ -1,13 +1,18 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
@@ -22,6 +27,8 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
 
     private final List<Challenge> mValues;
     private final OnListFragmentInteractionListener mListener;
+
+    private DateFormat formatter = DateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
 
     public ChallengeRecyclerViewAdapter(List<Challenge> items, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -38,8 +45,12 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //holder.mItem = mValues.get(position);
-        holder.mTitleView.setText(mValues.get(position).getId());
-        //holder.mContentView.setText(mValues.get(position).getBody());
+        Challenge challenge = mValues.get(position);
+        if (challenge.getCompleted()) {
+            holder.mView.setBackgroundColor(Color.GREEN);
+        } else {
+            holder.mView.setBackgroundColor(Color.RED);
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,19 +72,12 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mTitleView;
-        public final TextView mContentView;
         public Challenge mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mTitleView = (TextView) view.findViewById(R.id.item_title);
-            mContentView = (TextView) view.findViewById(R.id.content);
-        }
-
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
 }

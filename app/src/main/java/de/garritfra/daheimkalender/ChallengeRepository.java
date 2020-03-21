@@ -17,6 +17,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmList;
 import io.realm.RealmResults;
+import io.realm.Sort;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -49,6 +50,11 @@ public class ChallengeRepository {
         } else {
             return sharedInstance;
         }
+    }
+
+    public Challenge getNextAvailableChallenge() {
+        Challenge lastCompleted = realm.where(Challenge.class).equalTo("isCompleted", true).sort("dateStart", Sort.DESCENDING).findFirst();
+        return realm.where(Challenge.class).equalTo("isCompleted", false).sort("dateStart", Sort.ASCENDING).findFirst();
     }
 
     public void update(final OnUpdateFinishedListener listener) {
