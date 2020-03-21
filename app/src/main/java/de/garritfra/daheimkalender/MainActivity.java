@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment;
 import de.garritfra.daheimkalender.ui.TodayChallFragment;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 import de.garritfra.daheimkalender.ui.onboarding.OnboardingActivity;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         setContentView(R.layout.activity_main);
 
-        final Fragment[] fragments = { new TodayChallFragment() };
+        final Fragment[] fragments = { new TodayChallFragment(), new ChallengeTagebuchFragment() };
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragments[0]).commit();
 
@@ -38,8 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = fragments[0];
                         break;
                     case R.id.nav_history:
-                        //TODO: navigate to challenge history
-                        // selectedFragment = new HistoryFragment()
+                        selectedFragment = fragments[1];
                         break;
                     case R.id.nav_settings:
                         //TODO: navigate to settings
