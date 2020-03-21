@@ -80,11 +80,6 @@ public class ChallengeTagebuchFragment extends Fragment {
         constraintSet2.clone(getActivity(), R.layout.fragment_challenge_tagebuch_2);
 
         List challenges = new LinkedList();
-        for(int i=1; i<50; i++) {
-            Challenge challenge = new Challenge();
-            challenge.setId(i);
-            challenges.add(challenge);
-        }
 
 
         final Button button = view.findViewById(R.id.button);
