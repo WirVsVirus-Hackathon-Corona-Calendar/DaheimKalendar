@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         //TODO: navigate to challenge history
                         // selectedFragment = new HistoryFragment()
                         break;
+                    case R.id.nav_settings:
+                        //TODO: navigate to settings
+                        // selectedFragment = new SettingsFragment()
+
                 }
                 if (selectedFragment != null) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, selectedFragment).commit();

@@ -10,6 +10,7 @@
     <string name="open_onboarding">Onboarding öffnen</string>
     <string name="todays_challenge_title">Heutige Herausforderung</string>
     <string name="challenges_history_title">Bisherige Herausforderungen</string>
+    <string name="settings_title">Einstellungen</string>
     <string name="onboarding_title">Willkommen bei #Daheim - Der Corona Kalender...</string>
     <string name="onboarding_age_check_title">Bitte wähle dein Alter</string>
     <string name="close_button">Button zum Verlassen des Screens</string>
