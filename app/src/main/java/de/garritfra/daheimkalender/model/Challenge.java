@@ -28,6 +28,12 @@ public class Challenge extends RealmObject {
         this.id = id;
     }
 
+    public Challenge(String id, String title, String body) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
+
     public String getId() {
         return id;
     }
