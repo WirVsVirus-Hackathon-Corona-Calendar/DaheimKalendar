@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/nav_today"
+    android:icon="@drawable/ic_home_black_24dp"
+    android:title="@string/todays_challenge_title"></item>
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_https_black_24dp"
+        android:title="@string/challenges_history_title"></item>
+</menu>
