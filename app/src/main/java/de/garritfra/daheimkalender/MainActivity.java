@@ -1,31 +1,76 @@
 package de.garritfra.daheimkalender;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
-import de.garritfra.daheimkalender.model.Challenge;
-import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-public class MainActivity extends AppCompatActivity implements ChallengeTagebuchFragment.OnListFragmentInteractionListener {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import de.garritfra.daheimkalender.ui.TodayChallFragment;
+import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
+import de.garritfra.daheimkalender.ui.onboarding.OnboardingActivity;
+import io.realm.Realm;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Realm.init(this);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        final Fragment[] fragments = { new TodayChallFragment() };
 
-        ChallengeTagebuchFragment fragment = new ChallengeTagebuchFragment();
-        fragmentTransaction.add(R.id.frame, fragment);
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragments[0]).commit();
+
+        BottomNavigationView navView = findViewById(R.id.bottom_navigation);
+        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                Fragment selectedFragment = null;
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_today:
+                        selectedFragment = fragments[0];
+                        break;
+                    case R.id.nav_history:
+                        //TODO: navigate to challenge history
+                        // selectedFragment = new HistoryFragment()
+                        break;
+                    case R.id.nav_settings:
+                        //TODO: navigate to settings
+                        // selectedFragment = new SettingsFragment()
+
+                }
+                if (selectedFragment != null) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
+
     }
 
-    @Override
-    public void onListFragmentInteraction(Challenge item) {
+    private void openGraphicNovel() {
+        Intent intent = new Intent(this, GraphicNovelActivity.class);
+        Bundle bundle = new Bundle();
+        //TODO add correct challenged Id here
+        bundle.putInt(GraphicNovelActivity.challengeId, -1);
+        intent.putExtras(bundle);
+        startActivity(intent);
 
+
+
+    }
+
+    private void openAgeCheck() {
+        Intent intent = new Intent(this, OnboardingActivity.class);
+        startActivity(intent);
     }
 }
