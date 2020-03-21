@@ -1,39 +1,46 @@
 package de.garritfra.daheimkalender;
 
-import android.content.Context;
-
 import de.garritfra.daheimkalender.model.Challenge;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 
-public class ChallengeDAO {
+public class ChallengeRepository {
+
+    private static ChallengeRepository sharedInstance = new ChallengeRepository();
 
     private Realm realm;
 
-    public ChallengeDAO(Context context) {
-        Realm.init(context);
+    public ChallengeRepository() {
+        super();
         realm = Realm.getDefaultInstance().getDefaultInstance();
     }
 
-    void createOne(final Challenge challenge) {
+    public static ChallengeRepository getInstance() {
+        if (sharedInstance == null) {
+            sharedInstance = new ChallengeRepository();
+            return sharedInstance;
+        } else {
+            return sharedInstance;
+        }
+    }
+
+    void createOne(final Challenge challenge) throws Error {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                realm.insert(challenge);
+                realm.insertOrUpdate(challenge);
             }
         });
-        close();
     }
 
     void createMultiple(final RealmList<Challenge> challenges) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                realm.insert(challenges);
+                realm.insertOrUpdate(challenges);
             }
         });
-        close();
     }
 
     Challenge readOneById(int id) {
@@ -55,7 +62,6 @@ public class ChallengeDAO {
                 realm.insertOrUpdate(challenge);
             }
         });
-        close();
     }
 
     void updateMany(final RealmList<Challenge> challenges) {
@@ -65,7 +71,6 @@ public class ChallengeDAO {
                 realm.insertOrUpdate(challenges);
             }
         });
-        close();
     }
 
     void delete(final Challenge challenge) {
@@ -75,7 +80,6 @@ public class ChallengeDAO {
                 challenge.deleteFromRealm();
             }
         });
-        close();
     }
 
     void deleteMany(final RealmList<Challenge> challenges) {
@@ -85,7 +89,6 @@ public class ChallengeDAO {
                 challenges.deleteAllFromRealm();
             }
         });
-        close();
     }
 
     void deleteAll() {
@@ -95,7 +98,6 @@ public class ChallengeDAO {
                 realm.delete(Challenge.class);
             }
         });
-        close();
     }
 
     void close() {
