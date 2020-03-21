@@ -33,21 +33,7 @@ public class LoadingActivity extends AppCompatActivity implements ChallengeRepos
         super.onCreate(savedInstanceState);
 
         Realm.init(this);
-
-        Thread welcomeThread = new Thread() {
-
-            @Override
-            public void run() {
-                try {
-                    super.run();
-
-                    ChallengeRepository.getInstance().update(LoadingActivity.this);
-                } catch (Exception e) {
-
-                }
-            }
-        };
-        welcomeThread.start();
+        ChallengeRepository.getInstance().update(LoadingActivity.this);
 
         setContentView(R.layout.activity_loading);
 
