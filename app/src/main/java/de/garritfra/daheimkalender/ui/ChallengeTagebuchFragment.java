@@ -68,35 +68,16 @@ public class ChallengeTagebuchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_challenge_tagebuch_1, container, false);
+        View view = inflater.inflate(R.layout.fragment_challenge_history, container, false);
 
         constraintLayout = view.findViewById(R.id.constraint);
         //Animations Test Zeug
         final ConstraintLayout mConstraintLayout = view.findViewById(R.id.constraint);
          mOld = false;
         constraintSet1 = new ConstraintSet();
-        constraintSet1.clone(getActivity(), R.layout.fragment_challenge_tagebuch_1);
-        constraintSet2 = new ConstraintSet();
-        constraintSet2.clone(getActivity(), R.layout.fragment_challenge_tagebuch_2);
+        constraintSet1.clone(getActivity(), R.layout.fragment_challenge_history);
 
         List challenges = new LinkedList();
-
-
-        final Button button = view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(constraintLayout);
-                if (mOld = !mOld) {
-                    constraintSet2.applyTo(constraintLayout);
-                    button.setText(R.string.zurueck);
-                }  else {
-                    // set new constraints
-                    constraintSet1.applyTo(constraintLayout); // set new constraints
-                    button.setText(R.string.alte_challenges);
-                }
-            }
-        });
 
         // Set the adapter
             Context context = view.getContext();

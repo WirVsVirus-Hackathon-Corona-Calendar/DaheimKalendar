@@ -31,7 +31,7 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_challenge_tagebuch_item, parent, false);
+                .inflate(R.layout.fragment_challenge_history_item, parent, false);
         return new ViewHolder(view);
     }
 
