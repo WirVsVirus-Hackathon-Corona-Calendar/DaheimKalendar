@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+import io.realm.RealmResults;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Headers;
@@ -28,30 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         setContentView(R.layout.activity_main);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final OkHttpClient client = new OkHttpClient();
-                Request request = new Request.Builder()
-                        .url("https://e3bzj7x3ck.execute-api.eu-west-1.amazonaws.com/v1/challenges")
-                        .build();
+        ChallengeRepository.getInstance().update();
 
-                Call call = client.newCall(request);
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                        Log.e("E", String.valueOf(e.getStackTrace()));
-                    }
-
-                    @Override
-                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                        Log.d("OKHTTP", response.body().string());
-                    }
-                });
-
-
-            }
-        }).run();
     }
 
 
