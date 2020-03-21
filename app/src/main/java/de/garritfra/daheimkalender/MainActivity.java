@@ -23,7 +23,7 @@ import android.widget.Button;
 
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 
-import de.garritfra.daheimkalender.model.Challenge;
+import de.garritfra.daheimkalender.ui.onboarding.OnboardingActivity;
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,12 +40,20 @@ public class MainActivity extends AppCompatActivity {
         openGraphicNovelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openGrapicNovel();
+                openGraphicNovel();
+            }
+        });
+
+        Button openAgeCheckBtn = findViewById(R.id.btn_open_age_check);
+        openAgeCheckBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAgeCheck();
             }
         });
     }
 
-    private void openGrapicNovel() {
+    private void openGraphicNovel() {
         Intent intent = new Intent(this, GraphicNovelActivity.class);
         Bundle bundle = new Bundle();
         //TODO add correct challenged Id here
@@ -56,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    
+    private void openAgeCheck() {
+        Intent intent = new Intent(this, OnboardingActivity.class);
+        startActivity(intent);
+    }
 
 }

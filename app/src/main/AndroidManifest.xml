@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.onboarding.OnboardingActivity"
+            android:label="@string/title_onboarding_age_input"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.graphicnovel.GraphicNovelActivity"
             android:label="@string/title_activity_graphic_novel"

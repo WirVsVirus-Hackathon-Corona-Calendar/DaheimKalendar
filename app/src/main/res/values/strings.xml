@@ -2,12 +2,13 @@
     <string name="app_name">DaheimKalender</string>
     <string name="title_activity_graphic_novel">GraphicNovelActivity</string>
 
+    <string name="title_onboarding_age_input">OnboardingActivity</string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="close_button">Button zum Verlassen des Screens</string>
-
+    <string name="confirm_button">Bestätigen</string>
     <string name="open_graphic_novel">Graphic Novel öffnen</string>
     <string name="graphic_novel_challenge_title">Jetzt geht\'s los!</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
