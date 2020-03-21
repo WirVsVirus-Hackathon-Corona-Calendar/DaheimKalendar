@@ -1,5 +1,7 @@
 package de.garritfra.daheimkalender.ui.settings;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +43,14 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Hinweise für Eltern", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        view.findViewById(R.id.twitter_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/wirvsvirushack"));
+                startActivity(browserIntent);
             }
         });
 
