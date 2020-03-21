@@ -37,7 +37,7 @@ public class GraphicNovelChallengeFragment extends Fragment {
         if (mChallenge != null) {
             TextView headline = view.findViewById(R.id.grapicNovelTitle);
             headline.setText(mChallenge.getTitle());
-            TextView body = view.findViewById(R.id.grapicNovelBody);
+            TextView body = view.findViewById(R.id.graphicNovelBody);
             body.setText(mChallenge.getBody());
             //TODO: check for further details to add
         }
