@@ -37,67 +37,67 @@ public class AgeCheckFragment extends Fragment {
                 age = 1;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 2;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 3;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 4;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 5;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 6;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 7;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 8;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 9;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_10).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 10;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_11).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 11;
             }
         });
-        view.findViewById(R.id.btn_age_1).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btn_age_12).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 age = 12;
