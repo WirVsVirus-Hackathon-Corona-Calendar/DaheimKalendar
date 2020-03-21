@@ -5,32 +5,150 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
-
-        <NumberPicker
-            android:id="@+id/age_number_picker"
+        <TextView
+                android:id="@+id/onboarding_age_check_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            ></NumberPicker>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/onboarding_age_check_title"
+            android:layout_margin="10dp"
+            ></TextView>
 
         <Button
-            android:id="@+id/btn_confirm"
+            android:id="@+id/btn_age_1"
+            android:text="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/confirm_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onboarding_age_check_title"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_2"
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onboarding_age_check_title"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_3"
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onboarding_age_check_title"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_4"
+            android:text="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_age_1"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_5"
+            android:text="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_age_2"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_6"
+            android:text="6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_age_3"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_7"
+            android:text="7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_age_4"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_8"
+            android:text="8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_age_5"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_9"
+            android:text="9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_age_6"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_10"
+            android:text="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_age_7"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_11"
+            android:text="11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_age_8"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_12"
+            android:text="12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_age_9"
+            android:layout_margin="10dp"
+            ></Button>
+
+        <Button
+            android:id="@+id/btn_age_check_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/continue_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="10dp"
             android:padding="10dp"></Button>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

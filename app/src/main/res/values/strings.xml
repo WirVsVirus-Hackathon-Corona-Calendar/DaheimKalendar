@@ -7,8 +7,12 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="open_onboarding">Onboarding öffnen</string>
+    <string name="onboarding_title">Willkommen bei #Daheim - Der Corona Kalender...</string>
+    <string name="onboarding_age_check_title">Bitte wähle dein Alter</string>
     <string name="close_button">Button zum Verlassen des Screens</string>
     <string name="confirm_button">Bestätigen</string>
+    <string name="continue_button">Weiter</string>
     <string name="open_graphic_novel">Graphic Novel öffnen</string>
     <string name="graphic_novel_challenge_title">Jetzt geht\'s los!</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

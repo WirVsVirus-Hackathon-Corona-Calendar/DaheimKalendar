@@ -29,7 +29,7 @@
         android:id="@+id/btn_open_age_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alterseinstellungen öffnen"
+        android:text="@string/open_onboarding"
         app:layout_constraintBottom_toTopOf="@+id/btn_open_graphic_novel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

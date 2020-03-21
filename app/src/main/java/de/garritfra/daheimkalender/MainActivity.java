@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    
+
     private void openAgeCheck() {
         Intent intent = new Intent(this, OnboardingActivity.class);
         startActivity(intent);
