@@ -6,22 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".ui.graphicnovel.ChallengeNovelDoneFragment">
 
+    <ImageView
+        android:id="@+id/graphicNovelBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/castle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        />
+
     <TextView
-        android:id="@+id/textview_second"
+        android:id="@+id/txt_graphic_novel_done_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        android:textAppearance="@style/GraphicNovelHeadline"
+        android:text="@string/graphic_novel_done_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+
+    <TextView
+        android:id="@+id/graphicNovelDoneBody"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/graphic_novel_done_info"
+        android:gravity="center"
+        android:background="@drawable/graphic_novel_body_background"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toBottomOf="@id/txt_graphic_novel_done_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/img_graphic_novel_success"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_graphic_novel_success"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/graphicNovelDoneBody"
+        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintWidth_percent="100"
+        app:layout_constraintHeight_percent="50"
+        android:scaleType="center"
+        />
 
     <Button
         android:id="@+id/button_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/previous"
+        android:background="@drawable/graphic_novel_button_background"
+        android:layout_margin="10dp"
+        android:minWidth="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

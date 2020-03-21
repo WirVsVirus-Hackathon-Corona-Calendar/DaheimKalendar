@@ -41,8 +41,6 @@ public class ChallengeRepository {
     public ChallengeRepository() {
         super();
         realm = Realm.getInstance(config);
-
-        update();
     }
 
     public static ChallengeRepository getInstance() {
@@ -54,7 +52,7 @@ public class ChallengeRepository {
         }
     }
 
-    public void update() {
+    public void update(final OnUpdateFinishedListener listener) {
 
 
         final OkHttpClient client = new OkHttpClient();
@@ -80,6 +78,8 @@ public class ChallengeRepository {
                             updateOne(challenge);
                             Log.d("CHALLENGE", challenge.toString());
                         }
+
+                        listener.onUpdateFinished();
                     }
                 });
 
@@ -173,5 +173,11 @@ public class ChallengeRepository {
 
     void close() {
         realm.close();
+    }
+
+    public interface OnUpdateFinishedListener {
+
+        // this can be any type of method
+        void onUpdateFinished();
     }
 }
