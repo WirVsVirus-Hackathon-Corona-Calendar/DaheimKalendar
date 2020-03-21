@@ -6,13 +6,13 @@
 
     <TextView
         android:id="@+id/item_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
         android:text="Dies ist ein Test"
         android:layout_margin="@dimen/text_margin"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/primaryYellow"
-        android:background="@drawable/square"
+        android:background="@drawable/rounded_shape"
         android:padding="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
 

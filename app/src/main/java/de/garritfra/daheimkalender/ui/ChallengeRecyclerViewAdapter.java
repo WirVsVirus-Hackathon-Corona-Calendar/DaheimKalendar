@@ -7,7 +7,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
@@ -22,6 +25,8 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
 
     private final List<Challenge> mValues;
     private final OnListFragmentInteractionListener mListener;
+
+    private DateFormat formatter = DateFormat.getDateInstance(DateFormat.SHORT, Locale.getDefault());
 
     public ChallengeRecyclerViewAdapter(List<Challenge> items, OnListFragmentInteractionListener listener) {
         mValues = items;
@@ -38,7 +43,9 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //holder.mItem = mValues.get(position);
-        holder.mTitleView.setText(mValues.get(position).getId());
+        Challenge challenge = mValues.get(position);
+        Date date = new Date(challenge.getDateStart());
+        holder.mTitleView.setText(formatter.format(date));
         //holder.mContentView.setText(mValues.get(position).getBody());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
