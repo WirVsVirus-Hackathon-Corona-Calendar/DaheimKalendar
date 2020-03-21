@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        TodayChallengeFragment fragment = new TodayChallengeFragment();
-        fragmentTransaction.add(R.id.frame, fragment);
-        fragmentTransaction.commit();;
+        TodayChallFragment fragmentToday = new TodayChallFragment();
+        fragmentTransaction.add(R.id.frame, fragmentToday);
+        fragmentTransaction.commit();
     }
 }
