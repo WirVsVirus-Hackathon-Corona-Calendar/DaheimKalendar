@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
@@ -13,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.TransitionManager;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
@@ -27,7 +26,7 @@ import de.garritfra.daheimkalender.model.Challenge;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ChallengeTagebuchFragment extends Fragment {
+public class ChallengeHistoryFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -43,13 +42,13 @@ public class ChallengeTagebuchFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ChallengeTagebuchFragment() {
+    public ChallengeHistoryFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ChallengeTagebuchFragment newInstance(int columnCount) {
-        ChallengeTagebuchFragment fragment = new ChallengeTagebuchFragment();
+    public static ChallengeHistoryFragment newInstance(int columnCount) {
+        ChallengeHistoryFragment fragment = new ChallengeHistoryFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -78,6 +77,7 @@ public class ChallengeTagebuchFragment extends Fragment {
         constraintSet1.clone(getActivity(), R.layout.fragment_challenge_history);
 
         List challenges = new LinkedList();
+        challenges = ChallengeRepository.getInstance().getChallenges();
 
         // Set the adapter
             Context context = view.getContext();

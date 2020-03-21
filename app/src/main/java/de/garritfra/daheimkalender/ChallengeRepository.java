@@ -9,9 +9,11 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import java.util.Date;
+import java.util.List;
 
 import de.garritfra.daheimkalender.model.Challenge;
 import io.realm.Realm;
@@ -27,6 +29,8 @@ import okhttp3.Response;
 public class ChallengeRepository {
 
     private static ChallengeRepository sharedInstance = new ChallengeRepository();
+
+    ArrayList<Challenge> challenges = new ArrayList<Challenge>();
 
     RealmConfiguration config = new RealmConfiguration.Builder()
             .name("default.realm")
@@ -50,6 +54,10 @@ public class ChallengeRepository {
         } else {
             return sharedInstance;
         }
+    }
+
+    public ArrayList<Challenge> getChallenges() {
+        return challenges;
     }
 
     public void update(final OnUpdateFinishedListener listener) {
@@ -76,6 +84,7 @@ public class ChallengeRepository {
                     public void run() {
                         for (Challenge challenge : fetchedChallenges) {
                             updateOne(challenge);
+                            challenges.add(challenge);
                             Log.d("CHALLENGE", challenge.toString());
                         }
 
