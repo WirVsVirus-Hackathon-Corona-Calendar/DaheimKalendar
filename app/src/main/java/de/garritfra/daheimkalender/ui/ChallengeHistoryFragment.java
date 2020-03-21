@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
@@ -13,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.transition.TransitionManager;
 
 import java.util.LinkedList;
 import java.util.List;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
@@ -27,7 +26,7 @@ import de.garritfra.daheimkalender.model.Challenge;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ChallengeTagebuchFragment extends Fragment {
+public class ChallengeHistoryFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -43,13 +42,13 @@ public class ChallengeTagebuchFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ChallengeTagebuchFragment() {
+    public ChallengeHistoryFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ChallengeTagebuchFragment newInstance(int columnCount) {
-        ChallengeTagebuchFragment fragment = new ChallengeTagebuchFragment();
+    public static ChallengeHistoryFragment newInstance(int columnCount) {
+        ChallengeHistoryFragment fragment = new ChallengeHistoryFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -68,35 +67,17 @@ public class ChallengeTagebuchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_challenge_tagebuch_1, container, false);
+        View view = inflater.inflate(R.layout.fragment_challenge_history, container, false);
 
         constraintLayout = view.findViewById(R.id.constraint);
         //Animations Test Zeug
         final ConstraintLayout mConstraintLayout = view.findViewById(R.id.constraint);
          mOld = false;
         constraintSet1 = new ConstraintSet();
-        constraintSet1.clone(getActivity(), R.layout.fragment_challenge_tagebuch_1);
-        constraintSet2 = new ConstraintSet();
-        constraintSet2.clone(getActivity(), R.layout.fragment_challenge_tagebuch_2);
+        constraintSet1.clone(getActivity(), R.layout.fragment_challenge_history);
 
         List challenges = new LinkedList();
-
-
-        final Button button = view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(constraintLayout);
-                if (mOld = !mOld) {
-                    constraintSet2.applyTo(constraintLayout);
-                    button.setText(R.string.zurueck);
-                }  else {
-                    // set new constraints
-                    constraintSet1.applyTo(constraintLayout); // set new constraints
-                    button.setText(R.string.alte_challenges);
-                }
-            }
-        });
+        challenges = ChallengeRepository.getInstance().readAll();
 
         // Set the adapter
             Context context = view.getContext();

@@ -11,7 +11,7 @@ import java.util.List;
 
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
-import de.garritfra.daheimkalender.ui.ChallengeTagebuchFragment.OnListFragmentInteractionListener;
+import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment.OnListFragmentInteractionListener;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Challenge} and makes a call to the
@@ -31,15 +31,15 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_challenge_tagebuch_item, parent, false);
+                .inflate(R.layout.fragment_challenge_history_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getId());
-        holder.mContentView.setText(mValues.get(position).getBody());
+        //holder.mItem = mValues.get(position);
+        holder.mTitleView.setText(mValues.get(position).getId());
+        //holder.mContentView.setText(mValues.get(position).getBody());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,14 +60,14 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
+        public final TextView mTitleView;
         public final TextView mContentView;
         public Challenge mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
+            mTitleView = (TextView) view.findViewById(R.id.item_title);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 
