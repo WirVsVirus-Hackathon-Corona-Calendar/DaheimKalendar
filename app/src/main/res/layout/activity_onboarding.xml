@@ -15,16 +15,16 @@
         android:padding="10dp"
         android:text="@string/onboarding_title" />
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/fragment_onboarding_age_check"
+    <fragment
+        android:id="@+id/fragment"
+        android:name="de.garritfra.daheimkalender.ui.onboarding.AgeCheckFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_continue"
+        app:layout_constraintBottom_toTopOf="@+id/btn_continue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onboarding_title_text_view"
-        app:layout_editor_absoluteX="0dp" />
+        tools:layout="@layout/fragment_onboarding_age_check" />
 
     <Button
         android:id="@+id/btn_continue"
