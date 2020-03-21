@@ -1,5 +1,7 @@
 package de.garritfra.daheimkalender;
 
+import java.util.Date;
+
 import de.garritfra.daheimkalender.model.Challenge;
 import io.realm.Realm;
 import io.realm.RealmList;
@@ -53,6 +55,14 @@ public class ChallengeRepository {
 
     RealmResults<Challenge> readAll() {
         return realm.where(Challenge.class).findAll();
+    }
+
+    RealmResults<Challenge> getChallengesBefore(Date date) {
+        return realm.where(Challenge.class).lessThan("dateStart", date).findAll();
+    }
+
+    Challenge getTodaysChallenge() {
+        return realm.where(Challenge.class).equalTo("dateStart", new Date()).findFirst();
     }
 
     void updateOne(final Challenge challenge) {
