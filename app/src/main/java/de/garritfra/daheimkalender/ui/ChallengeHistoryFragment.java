@@ -77,7 +77,7 @@ public class ChallengeHistoryFragment extends Fragment {
         constraintSet1.clone(getActivity(), R.layout.fragment_challenge_history);
 
         List challenges = new LinkedList();
-        challenges = ChallengeRepository.getInstance().getChallenges();
+        challenges = ChallengeRepository.getInstance().readAll();
 
         // Set the adapter
             Context context = view.getContext();

@@ -30,8 +30,6 @@ public class ChallengeRepository {
 
     private static ChallengeRepository sharedInstance = new ChallengeRepository();
 
-    ArrayList<Challenge> challenges = new ArrayList<Challenge>();
-
     RealmConfiguration config = new RealmConfiguration.Builder()
             .name("default.realm")
             .schemaVersion(1)
@@ -54,10 +52,6 @@ public class ChallengeRepository {
         } else {
             return sharedInstance;
         }
-    }
-
-    public ArrayList<Challenge> getChallenges() {
-        return challenges;
     }
 
     public void update(final OnUpdateFinishedListener listener) {
@@ -84,7 +78,6 @@ public class ChallengeRepository {
                     public void run() {
                         for (Challenge challenge : fetchedChallenges) {
                             updateOne(challenge);
-                            challenges.add(challenge);
                             Log.d("CHALLENGE", challenge.toString());
                         }
 
@@ -123,7 +116,7 @@ public class ChallengeRepository {
         return realm.where(Challenge.class).findAll();
     }
 
-    RealmResults<Challenge> readAll() {
+    public RealmResults<Challenge> readAll() {
         return realm.where(Challenge.class).findAll();
     }
 
