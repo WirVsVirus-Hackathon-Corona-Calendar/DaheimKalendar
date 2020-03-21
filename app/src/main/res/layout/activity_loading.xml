@@ -5,16 +5,17 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="#FFFFFF"
     tools:context=".ui.loading.LoadingActivity">
 
     <ImageView
         android:id="@+id/wizardImageView"
         android:layout_width="331dp"
         android:layout_height="606dp"
+        android:background="@color/primaryWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wizard" />
+        app:srcCompat="@drawable/imf_braun" />
 </androidx.constraintlayout.widget.ConstraintLayout>
