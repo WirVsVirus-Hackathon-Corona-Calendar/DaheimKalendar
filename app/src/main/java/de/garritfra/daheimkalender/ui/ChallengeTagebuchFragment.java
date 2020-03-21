@@ -35,7 +35,7 @@ public class ChallengeTagebuchFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 3;
     private OnListFragmentInteractionListener mListener;
-    boolean mOld = true;
+    boolean mOld = false;
     private ConstraintSet constraintSet1;
     private ConstraintSet constraintSet2;
     private ConstraintLayout constraintLayout;
@@ -81,19 +81,25 @@ public class ChallengeTagebuchFragment extends Fragment {
         constraintSet2.clone(getActivity(), R.layout.fragment_challenge_tagebuch_2);
 
         List challenges = new LinkedList();
-        Challenge challenge = new Challenge();
-        challenge.setId(1);
-        challenges.add(challenge);
+        for(int i=1; i<50; i++) {
+            Challenge challenge = new Challenge();
+            challenge.setId(i);
+            challenges.add(challenge);
+        }
 
-        Button button = view.findViewById(R.id.button);
+
+        final Button button = view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TransitionManager.beginDelayedTransition(constraintLayout);
                 if (mOld = !mOld) {
-                    constraintSet1.applyTo(constraintLayout); // set new constraints
+                    constraintSet2.applyTo(constraintLayout);
+                    button.setText(R.string.zurueck);
                 }  else {
-                    constraintSet2.applyTo(constraintLayout); // set new constraints
+                    // set new constraints
+                    constraintSet1.applyTo(constraintLayout); // set new constraints
+                    button.setText(R.string.alte_challenges);
                 }
             }
         });
