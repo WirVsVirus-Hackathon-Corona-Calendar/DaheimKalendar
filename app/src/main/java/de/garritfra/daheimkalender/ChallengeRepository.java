@@ -79,6 +79,7 @@ public class ChallengeRepository {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // <-- if you are not on UI thread and want to go there
                     @Override
                     public void run() {
+                        deleteAll();
                         for (Challenge challenge : fetchedChallenges) {
                             updateOne(challenge);
                             Log.d("CHALLENGE", challenge.toString());
@@ -184,5 +185,32 @@ public class ChallengeRepository {
 
         // this can be any type of method
         void onUpdateFinished();
+    }
+
+    public void setCompleted(final Challenge challenge, final Boolean completed) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                challenge.setCompleted(completed);
+            }
+        });
+    }
+
+    public void setCompletionDate(final Challenge challenge, final Date completionDate) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                challenge.setCompletionDate(completionDate.getTime());
+            }
+        });
+    }
+
+    public void setImagePath(final Challenge challenge, final String imagePath) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                challenge.setImagePath(imagePath);
+            }
+        });
     }
 }

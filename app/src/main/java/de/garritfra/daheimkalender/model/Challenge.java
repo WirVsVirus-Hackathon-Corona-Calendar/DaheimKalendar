@@ -20,6 +20,7 @@ public class Challenge extends RealmObject {
     @SerializedName("order")
     private int order;
     private boolean isCompleted = false;
+    private String imagePath;
 
     public Challenge() {
 
@@ -87,5 +88,13 @@ public class Challenge extends RealmObject {
 
     public void setCompleted(Boolean completed) {
         this.isCompleted = completed;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }
