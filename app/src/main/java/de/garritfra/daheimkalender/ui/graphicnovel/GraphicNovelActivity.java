@@ -27,10 +27,10 @@ public class GraphicNovelActivity extends AppCompatActivity {
         if (bundle != null) {
             String challengeId = bundle.getString(GraphicNovelActivity.challengeId, "");
 
-        challenge = ChallengeRepository.getInstance().readOneById(challengeId);
+            challenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
 
         if (challenge == null) {
-            challenge = new Challenge("1", "Lorem Ipsum", "löasdasödköasdlasödadsök");
+            challenge = new Challenge("1", "Für heute bist du fertig", "Du hast deine heutige Herausforderung bereits gemeistert. Komm gerne morgen wieder vorbei. Und das wichtigste ist: BLEIB GESUND!");
         }
             //TODO: Get Challenge
         }

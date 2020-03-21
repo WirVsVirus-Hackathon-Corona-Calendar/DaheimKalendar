@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import de.garritfra.daheimkalender.model.Challenge;
@@ -53,8 +54,22 @@ public class ChallengeRepository {
     }
 
     public Challenge getNextAvailableChallenge() {
-        Challenge lastCompleted = realm.where(Challenge.class).equalTo("isCompleted", true).sort("dateStart", Sort.DESCENDING).findFirst();
-        return realm.where(Challenge.class).equalTo("isCompleted", false).sort("dateStart", Sort.ASCENDING).findFirst();
+        Challenge lastCompleted = realm.where(Challenge.class).equalTo("isCompleted", true).sort("order", Sort.DESCENDING).findFirst();
+        if (lastCompleted != null) {
+            // check if day has passed since last completed
+            Calendar completionDate = Calendar.getInstance();
+            completionDate.setTimeInMillis(lastCompleted.getCompletionDate());
+            Calendar now = Calendar.getInstance();
+            now.setTimeInMillis(new Date().getTime());
+            if (completionDate.get(Calendar.YEAR) == now.get(Calendar.YEAR) && completionDate.get(Calendar.MONTH) == now.get(Calendar.MONTH) && completionDate.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)) {
+                return realm.where(Challenge.class).equalTo("isCompleted", false).sort("order", Sort.ASCENDING).findFirst();
+            } else {
+                return null;
+            }
+        } else {
+            // no completed challenges yet, so we return the first one
+            return realm.where(Challenge.class).sort("order", Sort.ASCENDING).findFirst();
+        }
     }
 
     public void update(final OnUpdateFinishedListener listener) {
@@ -122,14 +137,6 @@ public class ChallengeRepository {
 
     public RealmResults<Challenge> readAll() {
         return realm.where(Challenge.class).findAll();
-    }
-
-    public RealmResults<Challenge> getChallengesBefore(Date date) {
-        return realm.where(Challenge.class).lessThan("dateStart", date).findAll();
-    }
-
-    public Challenge getTodaysChallenge() {
-        return realm.where(Challenge.class).equalTo("dateStart", new Date().getTime()).findFirst();
     }
 
     public void updateOne(final Challenge challenge) {

@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
@@ -47,6 +48,7 @@ public class GraphicNovelChallengeFragment extends Fragment {
         view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ChallengeRepository.getInstance().setCompleted(mChallenge, true);
                 NavHostFragment.findNavController(GraphicNovelChallengeFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
