@@ -25,4 +25,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="10dp" />
 
+    <Button
+        android:id="@+id/btn_alone_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/titel_alone_fragment"
+        app:layout_constraintBottom_toTopOf="@+id/btn_open_graphic_novel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
