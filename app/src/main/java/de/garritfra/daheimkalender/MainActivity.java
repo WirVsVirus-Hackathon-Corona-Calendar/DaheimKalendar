@@ -14,6 +14,7 @@ import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment;
 import de.garritfra.daheimkalender.ui.TodayChallFragment;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 import de.garritfra.daheimkalender.ui.onboarding.OnboardingActivity;
+import de.garritfra.daheimkalender.ui.settings.SettingsFragment;
 import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         setContentView(R.layout.activity_main);
 
-        final Fragment[] fragments = { new TodayChallFragment(), new ChallengeHistoryFragment() };
+        final Fragment[] fragments = { new TodayChallFragment(), new ChallengeHistoryFragment(), new SettingsFragment() };
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragments[0]).commit();
 
@@ -42,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = fragments[1];
                         break;
                     case R.id.nav_settings:
-                        //TODO: navigate to settings
-                        // selectedFragment = new SettingsFragment()
+                        selectedFragment = fragments[2];
 
                 }
                 if (selectedFragment != null) {
