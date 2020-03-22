@@ -11,10 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
+import java.util.List;
+
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
 public class ChallengeInformationsFragment extends Fragment {
+
+
+    TextView txt_material1, txt_material2, txt_material3, txt_material4, txt_material5, txt_instruction1, txt_instruction2, txt_instruction3, txt_instruction4, txt_instruction5;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -49,23 +56,166 @@ public class ChallengeInformationsFragment extends Fragment {
 
         ImageView imageViewChallenge = view.findViewById(R.id.imageChallenge);
 
+        txt_material1 = view.findViewById(R.id.txt_material1);
+        txt_material2 = view.findViewById(R.id.txt_material2);
+        txt_material3 = view.findViewById(R.id.txt_material3);
+        txt_material4 = view.findViewById(R.id.txt_material4);
+        txt_material5 = view.findViewById(R.id.txt_material5);
+
+        txt_instruction1 = view.findViewById(R.id.txt_instruction1);
+        txt_instruction2 = view.findViewById(R.id.txt_instruction2);
+        txt_instruction3 = view.findViewById(R.id.txt_instruction3);
+        txt_instruction4 = view.findViewById(R.id.txt_instruction4);
+        txt_instruction5 = view.findViewById(R.id.txt_instruction5);
+
         TextView txt_headlineMaterial =  view.findViewById(R.id.txt_headlineMaterial);
         txt_headlineMaterial.setText(R.string.titel_material);
 
-        TextView txt_material = view.findViewById(R.id.txt_material);
-        if (!challenge.getResources().isEmpty()) {
-                txt_material.setText(challenge.getResources().first());
+        setMock();
+
+        if (!challenge.getMaterials().isEmpty()) {
+            //setupResourceFields(challenge.getMaterials());
         }
 
         TextView txt_headlineInstruction = view.findViewById(R.id.txt_headlineInstruction);
         txt_headlineInstruction.setText(R.string.titel_instruction);
 
-        TextView txt_instruction =  view.findViewById(R.id.txt_instruction);
         if (!challenge.getTutorialSteps().isEmpty()) {
-            txt_instruction.setText(challenge.getTutorialSteps().first());
+            //setupInstructionFields(challenge.getTutorialSteps());
         }
 
         ImageView imageViewInstruction = view.findViewById(R.id.imageInstruction);
 
+    }
+
+    private void setMock() {
+        txt_material1.setVisibility(View.VISIBLE);
+        txt_material1.setText("Test1");
+        txt_material2.setVisibility(View.VISIBLE);
+        txt_material2.setText("Test2");
+        txt_material3.setVisibility(View.VISIBLE);
+        txt_material3.setText("Test3");
+        txt_material4.setVisibility(View.INVISIBLE);
+        txt_material5.setVisibility(View.INVISIBLE);
+        txt_instruction1.setVisibility(View.VISIBLE);
+        txt_instruction2.setVisibility(View.VISIBLE);
+        txt_instruction3.setVisibility(View.VISIBLE);
+        txt_instruction4.setVisibility(View.VISIBLE);
+        txt_instruction5.setVisibility(View.VISIBLE);
+    }
+
+    private void setupResourceFields(List<String> materials) {
+        switch (materials.size()) {
+            case 0:
+                txt_material1.setVisibility(View.INVISIBLE);
+                txt_material2.setVisibility(View.INVISIBLE);
+                txt_material3.setVisibility(View.INVISIBLE);
+                txt_material4.setVisibility(View.INVISIBLE);
+                txt_material5.setVisibility(View.INVISIBLE);
+            case 1:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.INVISIBLE);
+                txt_material3.setVisibility(View.INVISIBLE);
+                txt_material4.setVisibility(View.INVISIBLE);
+                txt_material5.setVisibility(View.INVISIBLE);
+            case 2:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(1));
+                txt_material3.setVisibility(View.INVISIBLE);
+                txt_material4.setVisibility(View.INVISIBLE);
+                txt_material5.setVisibility(View.INVISIBLE);
+            case 3:
+                txt_material1.setVisibility(View.VISIBLE);
+                //txt_material1.setText(materials.get(0));
+                txt_material1.setText("Test1");
+                txt_material2.setVisibility(View.VISIBLE);
+                //txt_material2.setText(materials.get(1));
+                txt_material2.setText("Test2");
+                txt_material3.setVisibility(View.VISIBLE);
+                //txt_material3.setText(materials.get(2));
+                txt_material3.setText("Test3");
+                txt_material4.setVisibility(View.INVISIBLE);
+                txt_material5.setVisibility(View.INVISIBLE);
+            case 4:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.INVISIBLE);
+            case 5:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.VISIBLE);
+                txt_material5.setText(materials.get(4));
+        }
+    }
+
+    private void setupInstructionFields(List<String> instructions) {
+        switch (instructions.size()) {
+            case 0:
+                txt_instruction1.setVisibility(View.INVISIBLE);
+                txt_instruction2.setVisibility(View.INVISIBLE);
+                txt_instruction3.setVisibility(View.INVISIBLE);
+                txt_instruction4.setVisibility(View.INVISIBLE);
+                txt_instruction5.setVisibility(View.INVISIBLE);
+            case 1:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.INVISIBLE);
+                txt_instruction3.setVisibility(View.INVISIBLE);
+                txt_instruction4.setVisibility(View.INVISIBLE);
+                txt_instruction5.setVisibility(View.INVISIBLE);
+            case 2:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.INVISIBLE);
+                txt_instruction4.setVisibility(View.INVISIBLE);
+                txt_instruction5.setVisibility(View.INVISIBLE);
+            case 3:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.INVISIBLE);
+                txt_instruction5.setVisibility(View.INVISIBLE);
+            case 4:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.INVISIBLE);
+            case 5:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.VISIBLE);
+                txt_instruction5.setText(instructions.get(4));
+        }
     }
 }
