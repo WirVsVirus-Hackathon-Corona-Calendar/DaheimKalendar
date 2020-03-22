@@ -1,5 +1,6 @@
 package de.garritfra.daheimkalender;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
@@ -11,6 +12,7 @@ import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -30,18 +32,22 @@ public class ImageStorage {
 
     private static ImageStorage sharedInstance = new ImageStorage();
 
+    private Context context;
     private HashMap<String, Bitmap> images;
 
-    public static ImageStorage getInstance() {
+    public static ImageStorage getInstance(Context context) {
         return sharedInstance;
     }
 
-    private ImageStorage() {
+    private ImageStorage(Context context) {
+        this.context = context;
         images = new HashMap<String, Bitmap>();
     }
 
     private void storeImage(String url, Bitmap bitmap) {
-        
+        String filename = md5(url) + ".png";
+        File file = new File(context.getFilesDir(), filename);
+
     }
 
     public void getImage(String url, ImageStorageListener listener) {
