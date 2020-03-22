@@ -55,6 +55,19 @@ public class TodayChallengeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_today_chall, container, false);
 
+        configureView(view);
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        configureView(getView());
+    }
+
+    private void configureView(View view) {
         Button startButton = view.findViewById(R.id.button_start);
 
         Challenge challenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
@@ -85,8 +98,6 @@ public class TodayChallengeFragment extends Fragment {
                 openGraphicNovel();
             }
         });
-
-        return view;
     }
 
     private void openGraphicNovel() {
