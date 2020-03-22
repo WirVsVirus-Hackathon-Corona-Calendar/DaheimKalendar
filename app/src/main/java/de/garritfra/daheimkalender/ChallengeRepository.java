@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -96,9 +95,12 @@ public class ChallengeRepository {
                     @Override
                     public void run() {
                         deleteAll();
-                        for (Challenge challenge : fetchedChallenges) {
-                            updateOne(challenge);
-                            Log.d("CHALLENGE", challenge.toString());
+
+                        if (fetchedChallenges != null) {
+                            for (Challenge challenge : fetchedChallenges) {
+                                updateOne(challenge);
+                                Log.d("CHALLENGE", challenge.toString());
+                            }
                         }
 
                         listener.onUpdateFinished();
