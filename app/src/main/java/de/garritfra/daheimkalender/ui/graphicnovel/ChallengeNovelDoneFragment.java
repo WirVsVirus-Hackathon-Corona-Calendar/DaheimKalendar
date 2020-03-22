@@ -13,13 +13,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
+import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
+import de.garritfra.daheimkalender.model.Challenge;
+import de.garritfra.daheimkalender.util.NameUtil;
 
 import static android.app.Activity.RESULT_OK;
 
 public class ChallengeNovelDoneFragment extends Fragment {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private String mChallengeId;
 
     @Override
     public View onCreateView(
@@ -58,6 +63,13 @@ public class ChallengeNovelDoneFragment extends Fragment {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ImageView imageView = (ImageView) getView().findViewById(R.id.img_graphic_novel_success);
             imageView.setImageBitmap(imageBitmap);
+
+            if (mChallengeId != null) {
+                Challenge challenge = ChallengeRepository.getInstance().readOneById(mChallengeId);
+                String path = ImageStorage.getInstance().storeChallengeImage(challenge.getId(), imageBitmap, getContext());
+                challenge.setImagePath(path);
+                ChallengeRepository.getInstance().updateOne(challenge);
+            }
         }
 
     }

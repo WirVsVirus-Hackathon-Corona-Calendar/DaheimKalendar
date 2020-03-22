@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import de.garritfra.daheimkalender.util.NameUtil;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -43,8 +44,14 @@ public class ImageStorage {
         images = new HashMap<String, Bitmap>();
     }
 
+    public String storeChallengeImage(String challengeId, Bitmap bitmap, Context context) {
+        String path = NameUtil.getResourceImageName(challengeId);
+        storeImage(path, bitmap, context);
+        return path;
+    }
+
     private void storeImage(String url, Bitmap bitmap, Context context) {
-        String filename = md5(url) + ".png";
+        String filename = NameUtil.getResourceImageName(url);
         try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE)) {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
         } catch (IOException e) {
@@ -53,13 +60,13 @@ public class ImageStorage {
     }
 
     private Boolean isImageStored(String url, Context context) {
-        String filename = md5(url) + ".png";
+        String filename = NameUtil.getResourceImageName(url);
         File file = new File(context.getFilesDir(), filename);
         return file.exists();
     }
 
     private Bitmap loadImage(String url, Context context) {
-        String filename = md5(url) + ".png";
+        String filename = NameUtil.getResourceImageName(url);
         File file = new File(context.getFilesDir(), filename);
         return BitmapFactory.decodeFile(file.getAbsolutePath());
     }
@@ -131,31 +138,6 @@ public class ImageStorage {
 
             }
         });
-    }
-
-    private static String md5(final String s) {
-        final String MD5 = "MD5";
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest
-                    .getInstance(MD5);
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuilder hexString = new StringBuilder();
-            for (byte aMessageDigest : messageDigest) {
-                String h = Integer.toHexString(0xFF & aMessageDigest);
-                while (h.length() < 2)
-                    h = "0" + h;
-                hexString.append(h);
-            }
-            return hexString.toString();
-
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 
     public interface ImageStorageListener {
