@@ -10,6 +10,8 @@ public class Challenge extends RealmObject {
 
     @PrimaryKey
     private String id;
+
+    @SerializedName("titel")
     private String title;
     private String body;
     @SerializedName("icon_url")
