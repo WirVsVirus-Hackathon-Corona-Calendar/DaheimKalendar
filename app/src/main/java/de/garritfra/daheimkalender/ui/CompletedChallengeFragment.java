@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.makeramen.roundedimageview.RoundedImageView;
+
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
@@ -43,10 +45,10 @@ public class CompletedChallengeFragment extends Fragment {
         TextView titleTextView = view.findViewById(R.id.completed_title_text_view);
         TextView challengeTitleTextView = view.findViewById(R.id.completed_challenge_title_text_view);
         TextView challengeDescriptionTextView = view.findViewById(R.id.completed_challenge_description_text_view);
-        ImageView imageView = view.findViewById(R.id.completed_challenge_image_view);
+        RoundedImageView roundedImageView = view.findViewById(R.id.completed_challenge_rounded_image_view);
 
         challengeTitleTextView.setText(getString(R.string.challenge) + " "+ mChallenge.getOrder() + ": " + mChallenge.getTitle());
         Drawable myIcon = getResources().getDrawable(R.drawable.under_sea_animals);
-        imageView.setImageDrawable(myIcon);
+        roundedImageView.setImageDrawable(myIcon);
     }
 }
