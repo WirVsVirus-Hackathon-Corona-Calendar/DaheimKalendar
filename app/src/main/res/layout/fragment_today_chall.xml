@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.8"
-        android:background="@drawable/imf_forest"
+        android:src="@drawable/background"
         android:backgroundTint="@color/black_overlay"
         android:backgroundTintMode="add"
         android:elevation="-10dp"
@@ -21,7 +21,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:scaleType="centerCrop"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_start"
@@ -39,24 +41,29 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_today_challenge_headline"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:elevation="0dp"
-        android:foregroundTint="#FFFFFF"
-        android:outlineProvider="paddedBounds"
         android:text="@string/your_challenge_today"
         android:textColor="#DD000000"
         android:textSize="30sp"
-        app:drawableTint="#FFFFFF"
+        android:elevation="10dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="6"
+        android:background="@drawable/title_background"
         app:layout_constraintBottom_toTopOf="@+id/button_start"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:gravity="center"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
