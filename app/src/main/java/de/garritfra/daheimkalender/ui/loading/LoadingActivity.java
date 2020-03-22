@@ -56,6 +56,8 @@ public class LoadingActivity extends AppCompatActivity implements ChallengeRepos
         List<String> urls = new LinkedList<>();
         for (Challenge challenge : result) {
             urls.add(challenge.getIconUrl());
+            urls.add(challenge.getStoryBeforeImageUrl());
+            urls.add(challenge.getStoryAfterImageUrl());
             urls.addAll(challenge.getResources());
         }
         String[] urlArray = new String[urls.size()];
