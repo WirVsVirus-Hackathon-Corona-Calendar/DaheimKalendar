@@ -59,13 +59,16 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.GONE);
         }
 
-        final ImageView imageView = holder.mView.findViewById(R.id.img_challenge_tile_background);
-        ImageStorage.getInstance().getImage(challenge.getImagePath(), new ImageStorage.ImageStorageListener() {
-            @Override
-            public void onImageLoaded(Bitmap bitMap) {
-                imageView.setImageBitmap(bitMap);
-            }
-        }, holder.mView.getContext());
+        String imagePath = challenge.getImagePath();
+        if (imagePath != null) {
+            final ImageView imageView = holder.mView.findViewById(R.id.img_challenge_tile_background);
+            ImageStorage.getInstance().getImage(imagePath, new ImageStorage.ImageStorageListener() {
+                @Override
+                public void onImageLoaded(Bitmap bitMap) {
+                    imageView.setImageBitmap(bitMap);
+                }
+            }, holder.mView.getContext());
+        }
         holder.mTitleView.setText(challenge.getTitle() != null ? challenge.getTitle(): "" + position);
         holder.mItem = challenge;
 
