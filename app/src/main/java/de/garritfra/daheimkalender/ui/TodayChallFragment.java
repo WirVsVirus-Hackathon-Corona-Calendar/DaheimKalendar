@@ -2,6 +2,7 @@ package de.garritfra.daheimkalender.ui;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,7 +77,8 @@ public class TodayChallFragment extends Fragment {
         } else {
             healineTextView.setText(R.string.no_challenge_for_today);
             textView.setText(null);
-            imageView.setImageBitmap(null);
+            Drawable placeHolder = getResources().getDrawable(R.drawable.no_challenge_placeholder);
+            imageView.setImageDrawable(placeHolder);
             startButton.setVisibility(View.GONE);
         }
 
