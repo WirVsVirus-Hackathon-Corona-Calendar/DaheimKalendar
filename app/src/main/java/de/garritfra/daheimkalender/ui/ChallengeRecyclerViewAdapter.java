@@ -51,7 +51,7 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
         } else {
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.GONE);
         }
-        holder.mTitleView.setText(challenge.getTitle());
+        holder.mTitleView.setText(challenge.getTitle() != null ? challenge.getTitle(): "" + position);
         holder.mItem = challenge;
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
