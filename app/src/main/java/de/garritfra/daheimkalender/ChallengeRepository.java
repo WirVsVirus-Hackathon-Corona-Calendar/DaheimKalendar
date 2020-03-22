@@ -74,7 +74,6 @@ public class ChallengeRepository {
 
     public void update(final OnUpdateFinishedListener listener) {
 
-
         final OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://e3bzj7x3ck.execute-api.eu-west-1.amazonaws.com/v1/challenges")

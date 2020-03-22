@@ -140,26 +140,4 @@ public class ChallengeHistoryFragment extends Fragment {
 
         void onListFragmentInteraction(Challenge item);
     }
-
-    /*
-    class MarginItemDecoration extends RecyclerView.ItemDecoration {
-
-        private int scpaceHeight;
-
-        MarginItemDecoration(int spaceHeight) {
-            this.scpaceHeight = spaceHeight;
-        }
-
-        @Override
-        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
-            if (parent.getChildAdapterPosition(view) == 0) {
-                outRect.top = scpaceHeight;
-            }
-            outRect.bottom = scpaceHeight;
-            outRect.left = scpaceHeight;
-            outRect.right = scpaceHeight;
-        }
-
-    }
-    */
 }

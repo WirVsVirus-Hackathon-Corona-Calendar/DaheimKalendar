@@ -1,11 +1,13 @@
 package de.garritfra.daheimkalender.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import org.w3c.dom.Text;
 
 import de.garritfra.daheimkalender.ChallengeRepository;
+import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
@@ -59,6 +62,14 @@ public class TodayChallFragment extends Fragment {
             TextView textView = view.findViewById(R.id.txt_today_challenge_title);
             textView.setText(challenge.getTitle());
         }
+
+        final ImageView imageView = view.findViewById(R.id.img_today_chall_bg);
+        ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
+            @Override
+            public void onImageLoaded(Bitmap bitMap) {
+                imageView.setImageBitmap(bitMap);
+            }
+        }, getContext());
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
