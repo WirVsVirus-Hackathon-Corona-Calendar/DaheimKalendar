@@ -48,11 +48,10 @@ public class LoadingActivity extends AppCompatActivity implements ChallengeRepos
     public void onUpdateFinished() {
         //challenges loaded, loading graphics
         RealmResults<Challenge> result = ChallengeRepository.getInstance().readAll();
-        Iterator<Challenge> it = result.iterator();
         List<String> urls = new LinkedList<>();
-        while (it.hasNext()) {
-            Challenge challenge = it.next();
+        for (Challenge challenge : result) {
             urls.add(challenge.getIconUrl());
+            urls.addAll(challenge.getResources());
         }
         String[] urlArray = new String[urls.size()];
         urlArray = urls.toArray(urlArray);
