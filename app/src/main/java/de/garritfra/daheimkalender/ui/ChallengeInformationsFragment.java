@@ -2,6 +2,8 @@ package de.garritfra.daheimkalender.ui;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import java.util.List;
@@ -112,13 +115,14 @@ public class ChallengeInformationsFragment extends Fragment {
 
         btnComplete.setText(R.string.btn_complete_title);
 
+
         btnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ChallengeRepository.getInstance().setCompleted(challenge, true);
                 ChallengeRepository.getInstance().setCompleted(challenge, true);
                 mChallengeId = challenge.getId();
-                dispatchTakePictureIntent();
+                showTakePhotoDialog();
                 //TODO: move to done fragment
             }
         });
@@ -145,6 +149,30 @@ public class ChallengeInformationsFragment extends Fragment {
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
+    }
+
+    private void showTakePhotoDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_add_photo, null);
+
+        dialogBuilder.setView(dialogView);
+        final AlertDialog alertDialog = dialogBuilder.create();
+        try {
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+        dialogView.findViewById(R.id.button_take_picture).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+                dispatchTakePictureIntent();
+            }
+        });
+
+        alertDialog.show();
     }
 
     private void setupResourceFields(List<String> materials) {

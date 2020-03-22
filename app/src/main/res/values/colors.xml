@@ -11,6 +11,7 @@
     <color name="headlineGrey">#878787</color>
 
     <color name="black">#000000</color>
+    <color name="transparent">#00FFFFFF</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>
