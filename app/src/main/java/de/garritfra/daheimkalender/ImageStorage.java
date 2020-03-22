@@ -13,6 +13,8 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,7 +23,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.garritfra.daheimkalender.model.Challenge;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -32,34 +33,53 @@ public class ImageStorage {
 
     private static ImageStorage sharedInstance = new ImageStorage();
 
-    private Context context;
     private HashMap<String, Bitmap> images;
 
-    public static ImageStorage getInstance(Context context) {
+    public static ImageStorage getInstance() {
         return sharedInstance;
     }
 
-    private ImageStorage(Context context) {
-        this.context = context;
+    private ImageStorage() {
         images = new HashMap<String, Bitmap>();
     }
 
-    private void storeImage(String url, Bitmap bitmap) {
+    private void storeImage(String url, Bitmap bitmap, Context context) {
         String filename = md5(url) + ".png";
-        File file = new File(context.getFilesDir(), filename);
-
+        try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE)) {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void getImage(String url, ImageStorageListener listener) {
+    private Boolean isImageStored(String url, Context context) {
+        String filename = md5(url) + ".png";
+        File file = new File(context.getFilesDir(), filename);
+        return file.exists();
+    }
+
+    private Bitmap loadImage(String url, Context context) {
+        String filename = md5(url) + ".png";
+        File file = new File(context.getFilesDir(), filename);
+        return BitmapFactory.decodeFile(file.getAbsolutePath());
+    }
+
+    public void getImage(String url, ImageStorageListener listener, Context context) {
         Bitmap bitmap = images.get(url);
         if (bitmap == null) {
-            downloadImage(url, listener);
+            Log.d(getClass().getCanonicalName(), "Image from cache: " + url);
+            downloadImage(url, listener, context);
+        } else if (isImageStored(url, context)) {
+            Log.d(getClass().getCanonicalName(), "Loaded image from storage: " + url);
+            bitmap = loadImage(url, context);
+            listener.onImageLoaded(bitmap);
         } else if (listener != null) {
+            Log.d(getClass().getCanonicalName(), "Downloading image: " + url);
             listener.onImageLoaded(bitmap);
         }
     }
 
-    public void getImages(final String[] urls, final ImageStorageListener listener) {
+    public void getImages(final String[] urls, final ImageStorageListener listener, Context context) {
         final List<String> finishedLoads = new LinkedList<String>();
         for (int i = 0; i < urls.length; i++) {
             final String url = urls[i];
@@ -71,11 +91,11 @@ public class ImageStorage {
                         listener.onImageLoaded(null);
                     }
                 }
-            });
+            }, context);
         }
     }
 
-    private void downloadImage(final String url, final ImageStorageListener listener) {
+    private void downloadImage(final String url, final ImageStorageListener listener, final Context context) {
 
         final OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -100,6 +120,7 @@ public class ImageStorage {
                         @Override
                         public void run() {
                             images.put(url, bitmap);
+                            storeImage(url, bitmap, context);
                             listener.onImageLoaded(bitmap);
                         }
                     });

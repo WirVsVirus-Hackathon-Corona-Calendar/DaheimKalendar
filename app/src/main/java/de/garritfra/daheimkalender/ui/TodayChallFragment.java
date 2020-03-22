@@ -64,12 +64,12 @@ public class TodayChallFragment extends Fragment {
         }
 
         final ImageView imageView = view.findViewById(R.id.img_today_chall_bg);
-        ImageStorage.getInstance(getContext()).getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
+        ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
             @Override
             public void onImageLoaded(Bitmap bitMap) {
                 imageView.setImageBitmap(bitMap);
             }
-        });
+        }, getContext());
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
