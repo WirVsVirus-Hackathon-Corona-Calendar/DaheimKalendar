@@ -59,4 +59,8 @@
         <item name="android:textColor">@color/primaryWhite</item>
     </style>
 
+    <style name="ProgressBarTint">
+        <item name="colorAccent">@color/primaryYellow</item>
+    </style>
+
 </resources>

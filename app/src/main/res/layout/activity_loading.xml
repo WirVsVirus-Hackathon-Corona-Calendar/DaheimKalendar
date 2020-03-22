@@ -24,7 +24,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="30dp"
-        android:progressDrawable="@drawable/circular_progress_bar"
+        android:theme="@style/ProgressBarTint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/progress_text_view">
@@ -43,5 +43,5 @@
         android:paddingHorizontal="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        ></TextView>
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
