@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/imageChallenge"
-            android:layout_width="wrap_content"
-            android:layout_height="373dp"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
             android:scaleType="fitXY"
             android:layout_weight="1"
             app:srcCompat="@drawable/background" />
@@ -165,6 +165,10 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/dog" />
     </LinearLayout>
+        <Button
+            android:id="@+id/btn_challenge_complete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"></Button>
 </LinearLayout>
 
     </ScrollView>

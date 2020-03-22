@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.net.URL;
 import java.util.List;
 
 import de.garritfra.daheimkalender.ImageStorage;
@@ -86,12 +88,23 @@ public class ChallengeInformationsFragment extends Fragment {
 
         final ImageView imageViewInstruction = view.findViewById(R.id.imageInstruction);
 
-        ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
-            @Override
-            public void onImageLoaded(Bitmap bitMap) {
-                imageViewInstruction.setImageBitmap(bitMap);
-            }
-        }, getContext());
+        String resourceUrl = challenge.getResources().first();
+
+        if (resourceUrl != null) {
+            imageViewInstruction.setVisibility(View.VISIBLE);
+            ImageStorage.getInstance().getImage(resourceUrl, new ImageStorage.ImageStorageListener() {
+                @Override
+                public void onImageLoaded(Bitmap bitMap) {
+                    imageViewInstruction.setImageBitmap(bitMap);
+                }
+            }, getContext());
+        } else {
+            imageViewInstruction.setVisibility(View.GONE);
+        }
+
+        Button btnComplete = view.findViewById(R.id.btn_challenge_complete);
+
+        btnComplete.setText("Complete");
     }
 
     private void setupResourceFields(List<String> materials) {
