@@ -35,6 +35,12 @@ public class Challenge extends RealmObject {
     @SerializedName("story_after")
     private String storyAfter;
 
+    @SerializedName("story_before_url")
+    private String storyBeforeImageUrl;
+
+    @SerializedName("story_after_url")
+    private String storyAfterImageUrl;
+
     // TODO: Date/Calendar/long?
     @SerializedName("completion_date")
     private long completionDate;
@@ -149,5 +155,13 @@ public class Challenge extends RealmObject {
 
     public String getStoryAfter() {
         return storyAfter;
+    }
+
+    public String getStoryBeforeImageUrl() {
+        return storyBeforeImageUrl;
+    }
+
+    public String getStoryAfterImageUrl() {
+        return storyAfterImageUrl;
     }
 }
