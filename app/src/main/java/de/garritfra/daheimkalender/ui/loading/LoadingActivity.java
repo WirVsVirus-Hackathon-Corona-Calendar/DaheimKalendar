@@ -56,7 +56,7 @@ public class LoadingActivity extends AppCompatActivity implements ChallengeRepos
         }
         String[] urlArray = new String[urls.size()];
         urlArray = urls.toArray(urlArray);
-        ImageStorage.getInstance().getImages(urlArray, new ImageStorage.ImageStorageListener() {
+        ImageStorage.getInstance(getApplicationContext()).getImages(urlArray, new ImageStorage.ImageStorageListener() {
             @Override
             public void onImageLoaded(Bitmap bitMap) {
                 startAfterLoading();
