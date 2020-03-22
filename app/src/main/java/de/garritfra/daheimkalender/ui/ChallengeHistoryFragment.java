@@ -92,13 +92,15 @@ public class ChallengeHistoryFragment extends Fragment {
         List challenges;
         challenges = ChallengeRepository.getInstance().readAll().sort("order", Sort.ASCENDING);
 
+
         Display display = getActivity().getWindowManager().getDefaultDisplay();
-        DisplayMetrics outMetrics = new DisplayMetrics ();
+        DisplayMetrics outMetrics = new DisplayMetrics();
         display.getMetrics(outMetrics);
 
-        float density  = getResources().getDisplayMetrics().density;
-        float dpWidth  = outMetrics.widthPixels / density;
-        mColumnCount = (int) (dpWidth / 92f);
+        float density = getResources().getDisplayMetrics().density;
+        float dpWidth = outMetrics.widthPixels / density;
+        float margin = (dpWidth - (mColumnCount * 104f)) / 2 * density;
+        //mColumnCount = (int) (dpWidth / 92f);
 
         // Set the adapter
             Context context = view.getContext();
@@ -109,6 +111,7 @@ public class ChallengeHistoryFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new ChallengeRecyclerViewAdapter(challenges, mListener));
+            recyclerView.setPadding((int) margin, 0, (int) margin, 0);
         return view;
     }
 

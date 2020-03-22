@@ -49,12 +49,13 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //holder.mItem = mValues.get(position);
         Challenge challenge = mValues.get(position);
+        //TODO: Add Challenge pciture
         if (challenge.getCompleted()) {
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.VISIBLE);
         } else {
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.GONE);
         }
-        holder.mTitleView.setText(challenge.getTitle());
+        holder.mTitleView.setText(challenge.getTitle() != null ? challenge.getTitle(): "" + position);
         holder.mItem = challenge;
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
