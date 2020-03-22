@@ -45,7 +45,9 @@
         android:id="@+id/completed_challenge_image_view"
         android:layout_width="match_parent"
         android:layout_height="276dp"
+        android:scaleType="fitXY"
         android:layout_margin="16dp"
+        android:background="@drawable/rounded_shape_completed_challenge"
         app:layout_constraintTop_toBottomOf="@+id/completed_challenge_description_text_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
