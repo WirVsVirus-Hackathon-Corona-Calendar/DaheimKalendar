@@ -93,12 +93,16 @@ public class ChallengeRepository {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // <-- if you are not on UI thread and want to go there
                     @Override
                     public void run() {
-                        deleteAll();
+                        //deleteAll();
 
                         if (fetchedChallenges != null) {
                             for (Challenge challenge : fetchedChallenges) {
-                                updateOne(challenge);
-                                Log.d("CHALLENGE", challenge.toString());
+                                if (readOneById(challenge.getId()) == null) {
+                                    createOne(challenge);
+                                    Log.d("CHALLENGE", "Challenge " + challenge.getOrder() + " created");
+                                } else {
+                                    Log.d("CHALLENGE", "Challenge " + challenge.getOrder() + " already existed");
+                                }
                             }
                         }
 
