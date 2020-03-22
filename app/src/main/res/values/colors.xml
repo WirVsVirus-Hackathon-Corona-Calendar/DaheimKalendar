@@ -8,7 +8,7 @@
     <color name="primaryYellow">#FFAC07</color>
     <color name="primaryRed">#EC573F</color>
     <color name="primaryWhite">#FFFFFF</color>
-    <color name="primaryGray">#878787</color>
+    <color name="headlineGrey">#878787</color>
 
     <color name="black_overlay">#66000000</color>
 </resources>

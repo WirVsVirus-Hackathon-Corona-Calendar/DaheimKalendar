@@ -1,17 +1,25 @@
 package de.garritfra.daheimkalender.ui.graphicnovel;
 
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 import de.garritfra.daheimkalender.R;
 
@@ -58,6 +66,11 @@ public class ChallengeNovelDoneFragment extends Fragment {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ImageView imageView = (ImageView) getView().findViewById(R.id.img_graphic_novel_success);
             imageView.setImageBitmap(imageBitmap);
+
+            Uri tempUri = getImageUri(getContext(), imageBitmap);
+            File imageFile = new File(getRealPathFromUri(tempUri));
+            Toast.makeText(getContext(), tempUri.getPath(), Toast.LENGTH_SHORT).show();
+
         }
 
     }
@@ -67,5 +80,37 @@ public class ChallengeNovelDoneFragment extends Fragment {
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
+    }
+
+
+    private String getRealPathFromUri(Uri tempUri) {
+        String path = "";
+        if (getContext().getContentResolver() != null) {
+            Cursor cursor = getContext().getContentResolver().query(tempUri, null, null, null, null);
+            if (cursor != null) {
+                cursor.moveToFirst();
+                int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                path = cursor.getString(idx);
+                cursor.close();
+            }
+        }
+        return path;
+    }
+
+    private Uri getImageUri(Context context, Bitmap imageBitmap) {
+
+        File sdcard = Environment.getExternalStorageDirectory();
+        if (sdcard != null) {
+            new File("/sdcard/Pictures").mkdirs();
+            File mediaDir = new File(sdcard, "DCIM/Camera");
+            if (!mediaDir.exists()) {
+                mediaDir.mkdirs();
+            }
+        }
+
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), imageBitmap, "Title", null);
+        return Uri.parse(path);
     }
 }

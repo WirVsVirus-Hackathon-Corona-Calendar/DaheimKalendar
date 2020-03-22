@@ -21,4 +21,14 @@
         <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/nebulaWhite</item>
     </style>
+
+    <style name="MyDiaryHealine">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/headlineGrey</item>
+    </style>
+
+    <style name="MyChallengesSubHealine">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/headlineGrey</item>
+    </style>
 </resources>
