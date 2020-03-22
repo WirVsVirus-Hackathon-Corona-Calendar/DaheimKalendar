@@ -12,6 +12,7 @@ import java.io.IOException;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import de.garritfra.daheimkalender.model.Challenge;
 import io.realm.Realm;
@@ -217,6 +218,32 @@ public class ChallengeRepository {
             @Override
             public void execute(Realm realm) {
                 challenge.setImagePath(imagePath);
+            }
+        });
+    }
+
+    public void setTutorialSteps(final Challenge challenge, List<String> tutorialSteps) {
+        final RealmList<String> realmList = new RealmList<String>();
+        for (String step : tutorialSteps) {
+            realmList.add(step);
+        }
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                challenge.setTutorialSteps(realmList);
+            }
+        });
+    }
+
+    public void setResources(final Challenge challenge, List<String> resources) {
+        final RealmList<String> realmList = new RealmList<String>();
+        for (String resource : resources) {
+            realmList.add(resource);
+        }
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                challenge.setResources(realmList);
             }
         });
     }

@@ -2,6 +2,9 @@ package de.garritfra.daheimkalender.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -13,6 +16,8 @@ public class Challenge extends RealmObject {
     private String body;
     @SerializedName("icon_url")
     private String iconUrl;
+    private RealmList<String> tutorialSteps;
+    private RealmList<String> resources;
 
     // TODO: Date/Calendar/long?
     @SerializedName("completion_date")
@@ -96,5 +101,21 @@ public class Challenge extends RealmObject {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public RealmList<String> getTutorialSteps() {
+        return tutorialSteps;
+    }
+
+    public void setTutorialSteps(RealmList<String> tutorialSteps) {
+        this.tutorialSteps = tutorialSteps;
+    }
+
+    public RealmList<String> getResources() {
+        return resources;
+    }
+
+    public void setResources(RealmList<String> resources) {
+        this.resources = resources;
     }
 }
