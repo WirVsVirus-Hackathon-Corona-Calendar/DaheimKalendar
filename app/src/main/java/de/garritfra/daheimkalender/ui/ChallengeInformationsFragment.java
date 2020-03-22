@@ -1,5 +1,6 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.List;
 
+import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
@@ -52,7 +54,14 @@ public class ChallengeInformationsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageView imageViewChallenge = view.findViewById(R.id.imageChallenge);
+        final ImageView imageViewChallenge = view.findViewById(R.id.imageChallenge);
+
+        ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
+            @Override
+            public void onImageLoaded(Bitmap bitMap) {
+                imageViewChallenge.setImageBitmap(bitMap);
+            }
+        }, getContext());
 
         txt_material1 = view.findViewById(R.id.txt_material1);
         txt_material2 = view.findViewById(R.id.txt_material2);
@@ -75,8 +84,14 @@ public class ChallengeInformationsFragment extends Fragment {
         TextView txt_headlineInstruction = view.findViewById(R.id.txt_headlineInstruction);
         txt_headlineInstruction.setText(R.string.titel_instruction);
 
-        ImageView imageViewInstruction = view.findViewById(R.id.imageInstruction);
+        final ImageView imageViewInstruction = view.findViewById(R.id.imageInstruction);
 
+        ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
+            @Override
+            public void onImageLoaded(Bitmap bitMap) {
+                imageViewInstruction.setImageBitmap(bitMap);
+            }
+        }, getContext());
     }
 
     private void setupResourceFields(List<String> materials) {
