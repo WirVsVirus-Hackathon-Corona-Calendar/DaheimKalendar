@@ -19,4 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/imf_forest" />
+    <ProgressBar
+        android:id="@+id/progress_spinner"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </ProgressBar>
 </androidx.constraintlayout.widget.ConstraintLayout>
