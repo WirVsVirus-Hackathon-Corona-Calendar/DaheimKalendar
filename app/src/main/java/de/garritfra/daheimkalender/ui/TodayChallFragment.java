@@ -56,7 +56,7 @@ public class TodayChallFragment extends Fragment {
 
         Challenge challenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
         if (challenge.getTitle() != null) {
-            TextView textView = view.findViewById(R.id.txt_today_challenge_headline);
+            TextView textView = view.findViewById(R.id.txt_today_challenge_title);
             textView.setText(challenge.getTitle());
         }
 
