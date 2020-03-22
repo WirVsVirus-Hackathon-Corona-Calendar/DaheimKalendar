@@ -58,7 +58,6 @@ public class GraphicNovelBeforeFragment extends Fragment {
         view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ChallengeRepository.getInstance().setCompleted(mChallenge, true);
                 NavHostFragment.findNavController(GraphicNovelBeforeFragment.this)
                         .navigate(R.id.action_story_before_to_challenge);
             }
