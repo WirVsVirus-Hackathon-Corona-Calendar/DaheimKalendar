@@ -3,23 +3,16 @@ package de.garritfra.daheimkalender;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import com.google.gson.Gson;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,8 +37,8 @@ public class ImageStorage {
         images = new HashMap<String, Bitmap>();
     }
 
-    public String storeChallengeImage(String challengeId, Bitmap bitmap, Context context) {
-        String path = NameUtil.getChallengeImageName(challengeId);
+    public String storeChallengeImage(Bitmap bitmap, Context context) {
+        String path = NameUtil.getRandomImageName();
         storeImage(path, bitmap, context);
         return path;
     }
@@ -54,6 +47,7 @@ public class ImageStorage {
         String filename = NameUtil.getResourceImageName(url);
         try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE)) {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            Log.d(getClass().getCanonicalName(), "Saving image " + filename + " from url " + url);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,17 +66,20 @@ public class ImageStorage {
     }
 
     public void getImage(String url, ImageStorageListener listener, Context context) {
+        Log.d(getClass().getCanonicalName(), "Getting image: " + url);
         Bitmap bitmap = images.get(url);
-        if (bitmap == null) {
+        if (bitmap != null) {
             Log.d(getClass().getCanonicalName(), "Image from cache: " + url);
-            downloadImage(url, listener, context);
+            if (listener != null) {
+                listener.onImageLoaded(bitmap);
+            };
         } else if (isImageStored(url, context)) {
             Log.d(getClass().getCanonicalName(), "Loaded image from storage: " + url);
             bitmap = loadImage(url, context);
             listener.onImageLoaded(bitmap);
-        } else if (listener != null) {
-            Log.d(getClass().getCanonicalName(), "Downloading image: " + url);
-            listener.onImageLoaded(bitmap);
+        } else {
+            Log.d(getClass().getCanonicalName(), "Downloading from cache: " + url);
+            downloadImage(url, listener, context);
         }
     }
 

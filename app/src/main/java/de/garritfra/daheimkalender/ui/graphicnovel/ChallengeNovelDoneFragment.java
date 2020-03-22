@@ -66,7 +66,7 @@ public class ChallengeNovelDoneFragment extends Fragment {
 
             if (mChallengeId != null) {
                 Challenge challenge = ChallengeRepository.getInstance().readOneById(mChallengeId);
-                String path = ImageStorage.getInstance().storeChallengeImage(challenge.getId(), imageBitmap, getContext());
+                String path = ImageStorage.getInstance().storeChallengeImage(imageBitmap, getContext());
                 challenge.setImagePath(path);
                 ChallengeRepository.getInstance().updateOne(challenge);
             }

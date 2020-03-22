@@ -134,7 +134,7 @@ public class ChallengeInformationsFragment extends Fragment {
 
             if (mChallengeId != null) {
                 Challenge challenge = ChallengeRepository.getInstance().readOneById(mChallengeId);
-                String path = ImageStorage.getInstance().storeChallengeImage(challenge.getId(), imageBitmap, getContext());
+                String path = ImageStorage.getInstance().storeChallengeImage(imageBitmap, getContext());
                 ChallengeRepository.getInstance().setImagePath(challenge, path);
             }
         }
