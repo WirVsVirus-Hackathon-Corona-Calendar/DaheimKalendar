@@ -1,17 +1,22 @@
 package de.garritfra.daheimkalender.ui;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -43,6 +48,13 @@ public class ChallengeHistoryFragment extends Fragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public ChallengeHistoryFragment() {
+        mListener = new OnListFragmentInteractionListener() {
+            @Override
+            public void onListFragmentInteraction(Challenge item) {
+                CompletedChallengeFragment fragment = new CompletedChallengeFragment(item);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            }
+        };
     }
 
     // TODO: Customize parameter initialization
@@ -76,8 +88,16 @@ public class ChallengeHistoryFragment extends Fragment {
         constraintSet1 = new ConstraintSet();
         constraintSet1.clone(getActivity(), R.layout.fragment_challenge_history);
 
-        List challenges = new LinkedList();
+        List challenges;
         challenges = ChallengeRepository.getInstance().readAll();
+
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics ();
+        display.getMetrics(outMetrics);
+
+        float density  = getResources().getDisplayMetrics().density;
+        float dpWidth  = outMetrics.widthPixels / density;
+        mColumnCount = (int) (dpWidth / 92f);
 
         // Set the adapter
             Context context = view.getContext();
@@ -109,6 +129,29 @@ public class ChallengeHistoryFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
+
         void onListFragmentInteraction(Challenge item);
     }
+
+    /*
+    class MarginItemDecoration extends RecyclerView.ItemDecoration {
+
+        private int scpaceHeight;
+
+        MarginItemDecoration(int spaceHeight) {
+            this.scpaceHeight = spaceHeight;
+        }
+
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            if (parent.getChildAdapterPosition(view) == 0) {
+                outRect.top = scpaceHeight;
+            }
+            outRect.bottom = scpaceHeight;
+            outRect.left = scpaceHeight;
+            outRect.right = scpaceHeight;
+        }
+
+    }
+    */
 }

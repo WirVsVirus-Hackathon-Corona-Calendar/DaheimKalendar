@@ -17,6 +17,9 @@ import java.util.Locale;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment.OnListFragmentInteractionListener;
+import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
+
+import static java.security.AccessController.getContext;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Challenge} and makes a call to the
@@ -47,10 +50,12 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
         //holder.mItem = mValues.get(position);
         Challenge challenge = mValues.get(position);
         if (challenge.getCompleted()) {
-            holder.mView.setBackgroundColor(Color.GREEN);
+            holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.VISIBLE);
         } else {
-            holder.mView.setBackgroundColor(Color.RED);
+            holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.GONE);
         }
+        holder.mTitleView.setText(challenge.getTitle());
+        holder.mItem = challenge;
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
