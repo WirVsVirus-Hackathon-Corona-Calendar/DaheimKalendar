@@ -3,6 +3,8 @@ package de.garritfra.daheimkalender.ui.loading;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +44,10 @@ public class LoadingActivity extends AppCompatActivity implements ChallengeRepos
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
+        ProgressBar progressBar = findViewById(R.id.progress_spinner);
+        progressBar.setVisibility(View.VISIBLE);
     }
+
 
     @Override
     public void onUpdateFinished() {
