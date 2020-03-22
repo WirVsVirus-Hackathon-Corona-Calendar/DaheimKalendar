@@ -3,255 +3,278 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:gravity="center"
     android:orientation="horizontal"
-    android:gravity="center">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
         <!-- LinearLayout Inside ScrollView -->
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-        android:paddingBottom="80dp"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
 
-        <ImageView
-            android:id="@+id/imageChallenge"
-            android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:scaleType="fitXY"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/background" />
+            <ImageView
+                android:id="@+id/imageChallenge"
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/background" />
 
-    <LinearLayout
-        android:id="@+id/materialLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:weightSum="2">
-
-
-        <TextView
-            android:id="@+id/txt_headlineMaterial"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/headlineGrey"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0.6"
-            android:textAppearance="@style/GraphicNovelHeadline"
-            android:gravity="center_horizontal"
-            android:paddingLeft="10dp" />
-        <TextView
-            android:id="@+id/txt_material1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp" />
-        <TextView
-            android:id="@+id/txt_material2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material5"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material6"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material7"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material8"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material9"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_material10"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
+            <LinearLayout
+                android:id="@+id/materialLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
 
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_headlineMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.6"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAppearance="@style/GraphicNovelHeadline"
+                    android:textColor="@color/headlineGrey" />
 
-    <LinearLayout
-        android:id="@+id/instructionsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:weightSum="2">
+                <TextView
+                    android:id="@+id/txt_material1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp" />
 
-        <TextView
-            android:id="@+id/txt_headlineInstruction"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0.6"
-            android:textColor="@color/headlineGrey"
-            android:textAppearance="@style/GraphicNovelHeadline"
-            android:gravity="center_horizontal"
-            android:paddingLeft="10dp" />
-        <TextView
-            android:id="@+id/txt_instruction1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction5"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction6"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction7"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction8"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction9"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/txt_instruction10"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/graphic_novel_body_background"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"/>
+                <TextView
+                    android:id="@+id/txt_material2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_material3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
 
-    <LinearLayout
-        android:id="@+id/imageLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:weightSum="2">
+                <TextView
+                    android:id="@+id/txt_material4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
 
-        <ImageView
-            android:id="@+id/imageInstruction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/dog" />
-    </LinearLayout>
-        <Button
-            android:id="@+id/btn_challenge_complete"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-</LinearLayout>
+                <TextView
+                    android:id="@+id/txt_material5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_material6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_material7"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_material8"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_material9"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_material10"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/instructionsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/txt_headlineInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.6"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:textAppearance="@style/GraphicNovelHeadline"
+                    android:textColor="@color/headlineGrey" />
+
+                <TextView
+                    android:id="@+id/txt_instruction1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction7"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction8"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction9"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_instruction10"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.6"
+                    android:background="@drawable/graphic_novel_body_background"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/imageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <ImageView
+                    android:id="@+id/imageInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/dog" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_challenge_complete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/dialog_button_background"/>
+        </LinearLayout>
 
     </ScrollView>
 </LinearLayout>
