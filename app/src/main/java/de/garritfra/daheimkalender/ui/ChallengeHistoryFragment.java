@@ -47,7 +47,7 @@ public class ChallengeHistoryFragment extends Fragment {
             @Override
             public void onListFragmentInteraction(Challenge item) {
                 CompletedChallengeFragment fragment = new CompletedChallengeFragment(item);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment, null);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
         };
     }

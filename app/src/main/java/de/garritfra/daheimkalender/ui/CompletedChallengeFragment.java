@@ -1,9 +1,13 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +33,18 @@ public class CompletedChallengeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        inflater.inflate(R.layout.fragment_challenge_completed, container, false);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_challenge_completed, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TextView titleTextView = view.findViewById(R.id.completed_title_text_view);
+        TextView challengeTitleTextView = view.findViewById(R.id.completed_challenge_title_text_view);
+        TextView challengeDescriptionTextView = view.findViewById(R.id.completed_challenge_description_text_view);
+        ImageView imageView = view.findViewById(R.id.completed_challenge_image_view);
+
+        challengeTitleTextView.setText(getString(R.string.challenge) + mChallenge.getOrder() + mChallenge.getTitle());
+        imageView.setBackgroundColor(Color.RED);
     }
 }

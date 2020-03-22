@@ -2,39 +2,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/completed_title_text_view"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:text="MEIN TAGEBUCH"
+        android:textColor="@color/primaryGray"
+        android:text="@string/completed_challenge_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </TextView>
     <TextView
         android:id="@+id/completed_challenge_title_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:text="Aufgabe 2: Wasserexperiment"
+        android:textColor="@color/primaryGray"
+        android:text="@string/challenge"
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/completed_title_text_view">
     </TextView>
     <TextView
         android:id="@+id/completed_challenge_description_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@color/primaryGray"
         android:layout_height="32dp"
-        android:text="Hier siehst du nochmal die Bilder von der Aufgabe"
+        android:text="@string/completed_challenge_description"
         android:layout_marginLeft="16dp"
         app:layout_constraintTop_toBottomOf="@+id/completed_challenge_title_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        android:lines="0">
+        app:layout_constraintStart_toStartOf="parent">
     </TextView>
     <ImageView
         android:id="@+id/completed_challenge_image_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="276dp"
         android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@+id/completed_challenge_description_text_view"
