@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TodayChallFragment">
+    tools:context=".ui.TodayChallengeFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_today_chall_bg"

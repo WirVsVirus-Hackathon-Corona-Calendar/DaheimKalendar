@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment;
-import de.garritfra.daheimkalender.ui.TodayChallFragment;
+import de.garritfra.daheimkalender.ui.TodayChallengeFragment;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 import de.garritfra.daheimkalender.ui.onboarding.OnboardingActivity;
 import de.garritfra.daheimkalender.ui.settings.SettingsFragment;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         setContentView(R.layout.activity_main);
 
-        final Fragment[] fragments = { new TodayChallFragment(), new ChallengeHistoryFragment(), new SettingsFragment() };
+        final Fragment[] fragments = { new TodayChallengeFragment(), new ChallengeHistoryFragment(), new SettingsFragment() };
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragments[0]).commit();
 

@@ -16,10 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import org.w3c.dom.Text;
-
-import javax.xml.datatype.Duration;
-
 import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
@@ -29,12 +25,12 @@ import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TodayChallFragment#newInstance} factory method to
+ * Use the {@link TodayChallengeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TodayChallFragment extends Fragment {
+public class TodayChallengeFragment extends Fragment {
 
-    public TodayChallFragment() {
+    public TodayChallengeFragment() {
         // Required empty public constructor
     }
 
@@ -44,8 +40,8 @@ public class TodayChallFragment extends Fragment {
      *
      * @return A new instance of fragment TodayChallFragment.
      */
-    public static TodayChallFragment newInstance() {
-        TodayChallFragment fragment = new TodayChallFragment();
+    public static TodayChallengeFragment newInstance() {
+        TodayChallengeFragment fragment = new TodayChallengeFragment();
         return fragment;
     }
 
@@ -86,8 +82,8 @@ public class TodayChallFragment extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  openGraphicNovel();
-                openChallangeInformation();
+                openGraphicNovel();
+                // openChallangeInformation();
             }
         });
 
@@ -107,12 +103,10 @@ public class TodayChallFragment extends Fragment {
         transaction.commit();
     }
 
+
     private void openGraphicNovel() {
         Intent intent = new Intent(getContext(), GraphicNovelActivity.class);
         Bundle bundle = new Bundle();
-        //TODO add correct challenged Id here
-        bundle.putString(GraphicNovelActivity.challengeId, "aff437cc-97f9-49b7-8efa-a8edf5feed96");
-        intent.putExtras(bundle);
         startActivity(intent);
     }
 }
