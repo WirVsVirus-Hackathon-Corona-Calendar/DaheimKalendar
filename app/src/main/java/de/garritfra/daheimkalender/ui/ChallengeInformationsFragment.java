@@ -69,7 +69,8 @@ public class ChallengeInformationsFragment extends Fragment {
         txt_instruction5 = view.findViewById(R.id.txt_instruction5);
 
         TextView txt_headlineMaterial =  view.findViewById(R.id.txt_headlineMaterial);
-        txt_headlineMaterial.setText(R.string.titel_material);
+        txt_headlineMaterial.setText("Material, das du brauchst:");
+        //txt_headlineMaterial.setText(R.string.titel_material);
 
         setMock();
 
@@ -78,7 +79,8 @@ public class ChallengeInformationsFragment extends Fragment {
         }
 
         TextView txt_headlineInstruction = view.findViewById(R.id.txt_headlineInstruction);
-        txt_headlineInstruction.setText(R.string.titel_instruction);
+        txt_headlineInstruction.setText("Anleitung");
+        //txt_headlineInstruction.setText(R.string.titel_instruction);
 
         if (!challenge.getTutorialSteps().isEmpty()) {
             //setupInstructionFields(challenge.getTutorialSteps());
@@ -90,18 +92,19 @@ public class ChallengeInformationsFragment extends Fragment {
 
     private void setMock() {
         txt_material1.setVisibility(View.VISIBLE);
-        txt_material1.setText("Test1");
+        txt_material1.setText("Papier - jede Größe, Form und Farbe ist erlaubt");
         txt_material2.setVisibility(View.VISIBLE);
-        txt_material2.setText("Test2");
+        txt_material2.setText("Stifte, ob bunt oder nicht, dick oder dünn, alle Farben kannst du verwenden");
         txt_material3.setVisibility(View.VISIBLE);
-        txt_material3.setText("Test3");
+        txt_material3.setText("Vielleicht malst du aber lieber mit Farbe, dann kannst du Firus natürlich auch mit Farben malen.");
         txt_material4.setVisibility(View.INVISIBLE);
         txt_material5.setVisibility(View.INVISIBLE);
         txt_instruction1.setVisibility(View.VISIBLE);
-        txt_instruction2.setVisibility(View.VISIBLE);
-        txt_instruction3.setVisibility(View.VISIBLE);
-        txt_instruction4.setVisibility(View.VISIBLE);
-        txt_instruction5.setVisibility(View.VISIBLE);
+        txt_instruction1.setText("Hier darfst du einfach deiner Fantasie freien Lauf lassen! Wie könnte Firus aussehen? Hat er lange Haare oder nicht? Stacheln oder vielleicht ganz lange Zähne? Ist er groß oder ganz klein? Hat er zwei Augen oder ganz viele? Oder hat Firus vielleicht sogar ganz lustige Ohren und trägt am liebsten viel zu große Kleidung?");
+        txt_instruction2.setVisibility(View.INVISIBLE);
+        txt_instruction3.setVisibility(View.INVISIBLE);
+        txt_instruction4.setVisibility(View.INVISIBLE);
+        txt_instruction5.setVisibility(View.INVISIBLE);
     }
 
     private void setupResourceFields(List<String> materials) {
