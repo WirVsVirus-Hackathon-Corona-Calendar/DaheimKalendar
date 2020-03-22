@@ -1,5 +1,6 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
@@ -45,10 +47,19 @@ public class CompletedChallengeFragment extends Fragment {
         TextView titleTextView = view.findViewById(R.id.completed_title_text_view);
         TextView challengeTitleTextView = view.findViewById(R.id.completed_challenge_title_text_view);
         TextView challengeDescriptionTextView = view.findViewById(R.id.completed_challenge_description_text_view);
-        RoundedImageView roundedImageView = view.findViewById(R.id.completed_challenge_rounded_image_view);
+        final RoundedImageView roundedImageView = view.findViewById(R.id.completed_challenge_rounded_image_view);
 
         challengeTitleTextView.setText(getString(R.string.challenge) + " "+ mChallenge.getOrder() + ": " + mChallenge.getTitle());
-        Drawable myIcon = getResources().getDrawable(R.drawable.under_sea_animals);
-        roundedImageView.setImageDrawable(myIcon);
+        if (mChallenge.getImagePath() != null) {
+            ImageStorage.getInstance().getImage(mChallenge.getImagePath(), new ImageStorage.ImageStorageListener() {
+                @Override
+                public void onImageLoaded(Bitmap bitMap) {
+                    roundedImageView.setImageBitmap(bitMap);
+                }
+            }, getContext());
+        } else {
+            Drawable placeHolder = getResources().getDrawable(R.drawable.under_sea_animals);
+            roundedImageView.setImageDrawable(placeHolder);
+        }
     }
 }

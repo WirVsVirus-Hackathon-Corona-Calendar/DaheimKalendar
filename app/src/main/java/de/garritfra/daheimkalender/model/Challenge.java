@@ -29,6 +29,12 @@ public class Challenge extends RealmObject {
     @SerializedName("attachments")
     private RealmList<String> resources;
 
+    @SerializedName("story_before")
+    private String storyBefore;
+
+    @SerializedName("story_after")
+    private String storyAfter;
+
     // TODO: Date/Calendar/long?
     @SerializedName("completion_date")
     private long completionDate;
@@ -135,5 +141,13 @@ public class Challenge extends RealmObject {
 
     public void setMaterials(RealmList<String> materials) {
         this.materials = materials;
+    }
+
+    public String getStoryBefore() {
+        return storyBefore;
+    }
+
+    public String getStoryAfter() {
+        return storyAfter;
     }
 }
