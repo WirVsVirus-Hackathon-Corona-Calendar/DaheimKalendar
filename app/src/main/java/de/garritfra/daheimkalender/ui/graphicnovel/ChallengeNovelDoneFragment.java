@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,6 +20,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 
 import static android.app.Activity.RESULT_OK;
@@ -68,9 +68,7 @@ public class ChallengeNovelDoneFragment extends Fragment {
             imageView.setImageBitmap(imageBitmap);
 
             Uri tempUri = getImageUri(getContext(), imageBitmap);
-            File imageFile = new File(getRealPathFromUri(tempUri));
-            Toast.makeText(getContext(), tempUri.getPath(), Toast.LENGTH_SHORT).show();
-
+            ChallengeRepository.getInstance().setImagePath(((GraphicNovelActivity) getActivity()).challenge, tempUri.getPath());
         }
 
     }

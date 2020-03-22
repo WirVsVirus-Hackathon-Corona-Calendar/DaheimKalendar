@@ -48,6 +48,13 @@ public class ChallengeHistoryFragment extends Fragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public ChallengeHistoryFragment() {
+        mListener = new OnListFragmentInteractionListener() {
+            @Override
+            public void onListFragmentInteraction(Challenge item) {
+                CompletedChallengeFragment fragment = new CompletedChallengeFragment(item);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            }
+        };
     }
 
     // TODO: Customize parameter initialization
@@ -125,6 +132,7 @@ public class ChallengeHistoryFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
+
         void onListFragmentInteraction(Challenge item);
     }
 

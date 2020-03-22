@@ -17,6 +17,9 @@ import java.util.Locale;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment.OnListFragmentInteractionListener;
+import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
+
+import static java.security.AccessController.getContext;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Challenge} and makes a call to the
