@@ -1,9 +1,12 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.content.res.AppCompatResources;
@@ -14,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment.OnListFragmentInteractionListener;
@@ -49,12 +53,19 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //holder.mItem = mValues.get(position);
         Challenge challenge = mValues.get(position);
-        //TODO: Add Challenge pciture
         if (challenge.getCompleted()) {
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.VISIBLE);
         } else {
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.GONE);
         }
+
+        final ImageView imageView = holder.mView.findViewById(R.id.img_challenge_tile_background);
+        ImageStorage.getInstance().getImage(challenge.getImagePath(), new ImageStorage.ImageStorageListener() {
+            @Override
+            public void onImageLoaded(Bitmap bitMap) {
+                imageView.setImageBitmap(bitMap);
+            }
+        }, holder.mView.getContext());
         holder.mTitleView.setText(challenge.getTitle() != null ? challenge.getTitle(): "" + position);
         holder.mItem = challenge;
 
