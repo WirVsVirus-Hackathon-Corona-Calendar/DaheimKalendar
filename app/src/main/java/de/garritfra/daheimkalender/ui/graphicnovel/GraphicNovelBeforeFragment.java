@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +45,8 @@ public class GraphicNovelBeforeFragment extends Fragment {
         }
 
         if (mChallenge != null) {
+            ScrollView scrollView = view.findViewById(R.id.graphicNovelBody);
+            scrollView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.animation_fadein));
             TextView body = view.findViewById(R.id.graphicNovelBodyText);
             body.setText(mChallenge.getStoryBefore());
             final ImageView scene = view.findViewById(R.id.graphicNovelBackground);
@@ -52,6 +56,7 @@ public class GraphicNovelBeforeFragment extends Fragment {
                     scene.setImageBitmap(bitMap);
                 }
             }, getContext());
+            body.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.animation_fadein));
         }
 
         view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
