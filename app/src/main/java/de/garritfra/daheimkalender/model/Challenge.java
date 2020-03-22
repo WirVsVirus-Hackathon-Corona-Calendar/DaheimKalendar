@@ -13,10 +13,15 @@ public class Challenge extends RealmObject {
 
     @SerializedName("titel")
     private String title;
+
+    @SerializedName("beschreibung")
     private String body;
+
     @SerializedName("icon_url")
     private String iconUrl;
     private RealmList<String> tutorialSteps;
+
+    @SerializedName("attachments")
     private RealmList<String> resources;
 
     // TODO: Date/Calendar/long?

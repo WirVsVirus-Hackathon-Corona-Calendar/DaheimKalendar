@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
@@ -62,7 +61,7 @@ public class ChallengeInformationsFragment extends Fragment {
         txt_headlineInstruction.setText(R.string.titel_instruction);
 
         TextView txt_instruction =  view.findViewById(R.id.txt_instruction);
-        if (!challenge.getResources().isEmpty()) {
+        if (!challenge.getTutorialSteps().isEmpty()) {
             txt_instruction.setText(challenge.getTutorialSteps().first());
         }
 
