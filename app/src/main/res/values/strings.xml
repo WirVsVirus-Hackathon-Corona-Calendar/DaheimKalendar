@@ -41,7 +41,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="your_challenge_today">Dein heutiges Abenteuer:</string>
-
+<string name="challenge_not_completed_yet">Du hast diese Challenge noch nicht beendet!</string>
 
     <string name="titel_material">Das brauchst du:</string>
     <string name="titel_instruction">Anleitung:</string>
