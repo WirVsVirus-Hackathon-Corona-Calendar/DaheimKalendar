@@ -1,5 +1,6 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -52,8 +54,15 @@ public class ChallengeHistoryFragment extends Fragment {
         mListener = new OnListFragmentInteractionListener() {
             @Override
             public void onListFragmentInteraction(Challenge item) {
-                CompletedChallengeFragment fragment = new CompletedChallengeFragment(item);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                if (item.getCompleted()) {
+                    CompletedChallengeFragment fragment = new CompletedChallengeFragment(item);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                } else {
+                    Toast toast = Toast.makeText(getContext(), R.string.challenge_not_completed_yet, Toast.LENGTH_LONG);
+                    toast.show();
+
+                    //TODO show info that challenge has not been completed yet
+                }
             }
         };
     }
