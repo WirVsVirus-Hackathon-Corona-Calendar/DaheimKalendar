@@ -21,9 +21,10 @@
         <ImageView
             android:id="@+id/imageChallenge"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="373dp"
+            android:scaleType="fitXY"
             android:layout_weight="1"
-            app:srcCompat="@drawable/wirvsvirus" />
+            app:srcCompat="@drawable/background" />
 
     <LinearLayout
         android:id="@+id/materialLayout"
@@ -44,14 +45,46 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp" />
         <TextView
-            android:id="@+id/txt_material"
+            android:id="@+id/txt_material1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:background="@drawable/graphic_novel_body_background"
             android:gravity="center_vertical"
             android:paddingLeft="10dp" />
+        <TextView
+            android:id="@+id/txt_material2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_material3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_material4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_material5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+
 
     </LinearLayout>
 
@@ -73,14 +106,45 @@
             android:gravity="center_vertical"
             android:paddingLeft="10dp" />
         <TextView
-            android:id="@+id/txt_instruction"
+            android:id="@+id/txt_instruction1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="0.6"
             android:background="@drawable/graphic_novel_body_background"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp" />
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_instruction2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_instruction3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_instruction4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txt_instruction5"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"/>
 
     </LinearLayout>
 
