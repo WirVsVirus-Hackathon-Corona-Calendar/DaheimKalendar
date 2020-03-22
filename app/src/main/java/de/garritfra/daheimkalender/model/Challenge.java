@@ -19,7 +19,12 @@ public class Challenge extends RealmObject {
 
     @SerializedName("icon_url")
     private String iconUrl;
+
+    @SerializedName("anleitung")
     private RealmList<String> tutorialSteps;
+
+    @SerializedName("material")
+    private RealmList<String> materials;
 
     @SerializedName("attachments")
     private RealmList<String> resources;
@@ -122,5 +127,13 @@ public class Challenge extends RealmObject {
 
     public void setResources(RealmList<String> resources) {
         this.resources = resources;
+    }
+
+    public RealmList<String> getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(RealmList<String> materials) {
+        this.materials = materials;
     }
 }
