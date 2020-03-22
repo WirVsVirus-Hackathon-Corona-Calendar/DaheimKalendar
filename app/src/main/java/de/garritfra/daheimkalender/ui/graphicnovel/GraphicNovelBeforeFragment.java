@@ -37,10 +37,6 @@ public class GraphicNovelBeforeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if (getActivity() instanceof GraphicNovelActivity) {
-            GraphicNovelActivity activity = (GraphicNovelActivity) getActivity();
-            //TODO: Get Challenge from activity.challengeID
-        }
 
         if (mChallenge != null) {
             TextView body = view.findViewById(R.id.graphicNovelBodyText);

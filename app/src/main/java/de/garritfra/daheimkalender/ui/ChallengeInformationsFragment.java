@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
+import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
+import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelAfterFragment;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -39,8 +42,7 @@ public class ChallengeInformationsFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private Challenge challenge;
 
-    public ChallengeInformationsFragment(Challenge challenge) {
-        this.challenge = challenge;
+    public ChallengeInformationsFragment() {
     }
 
     /*
@@ -65,6 +67,10 @@ public class ChallengeInformationsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if (getActivity() instanceof GraphicNovelActivity) {
+            challenge = ((GraphicNovelActivity) getActivity()).challenge;
+        }
 
         final ImageView imageViewChallenge = view.findViewById(R.id.imageChallenge);
 
@@ -134,7 +140,6 @@ public class ChallengeInformationsFragment extends Fragment {
                 ChallengeRepository.getInstance().setCompleted(challenge, true);
                 mChallengeId = challenge.getId();
                 showTakePhotoDialog();
-                //TODO: move to done fragment
             }
         });
     }
@@ -152,6 +157,9 @@ public class ChallengeInformationsFragment extends Fragment {
                 String path = ImageStorage.getInstance().storeChallengeImage(imageBitmap, getContext());
                 ChallengeRepository.getInstance().setImagePath(challenge, path);
             }
+
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_challenge_to_story_after);
         }
     }
 

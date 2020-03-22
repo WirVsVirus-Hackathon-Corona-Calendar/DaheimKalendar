@@ -83,26 +83,11 @@ public class TodayChallengeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 openGraphicNovel();
-                // openChallangeInformation();
             }
         });
 
         return view;
     }
-
-    private void openChallangeInformation(){
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        Challenge nextChallenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
-        if (nextChallenge != null) {
-            transaction.replace(R.id.fragment_container, new ChallengeInformationsFragment(ChallengeRepository.getInstance().getNextAvailableChallenge()));
-        } else {
-            Toast toast = Toast.makeText(getContext(), R.string.no_challenge_for_today, Toast.LENGTH_LONG);
-            toast.show();
-        }
-        transaction.commit();
-    }
-
 
     private void openGraphicNovel() {
         Intent intent = new Intent(getContext(), GraphicNovelActivity.class);

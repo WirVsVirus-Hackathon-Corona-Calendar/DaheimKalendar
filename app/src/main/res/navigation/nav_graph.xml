@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/GraphicNovelAfter"
-        android:name="de.garritfra.daheimkalender.ui.graphicnovel.ChallengeNovelDoneFragment"
+        android:name="de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelAfterFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_graphic_novel_challenge">
 

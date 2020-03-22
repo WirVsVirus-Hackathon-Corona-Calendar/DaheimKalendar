@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,18 +28,15 @@ public class GraphicNovelAfterFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        mChallenge = ((GraphicNovelActivity) getContext()).challenge;
+        if (getActivity() instanceof GraphicNovelActivity) {
+            mChallenge = ((GraphicNovelActivity) getActivity()).challenge;
+        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_graphic_novel_challenge, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        if (getActivity() instanceof GraphicNovelActivity) {
-            GraphicNovelActivity activity = (GraphicNovelActivity) getActivity();
-            //TODO: Get Challenge from activity.challengeID
-        }
 
         if (mChallenge != null) {
             TextView body = view.findViewById(R.id.graphicNovelBodyText);
@@ -53,12 +51,13 @@ public class GraphicNovelAfterFragment extends Fragment {
             //TODO: check for further details to add
         }
 
+        ((Button) view.findViewById(R.id.button_first)).setText(R.string.continue_button);
+
         view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ChallengeRepository.getInstance().setCompleted(mChallenge, true);
-                //NavHostFragment.findNavController(GraphicNovelAfterFragment.this)
-                //        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                getActivity().finish();
             }
         });
     }
