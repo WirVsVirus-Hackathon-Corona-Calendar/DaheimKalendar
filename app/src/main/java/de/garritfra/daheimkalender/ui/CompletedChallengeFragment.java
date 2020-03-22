@@ -1,6 +1,7 @@
 package de.garritfra.daheimkalender.ui;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,6 +46,7 @@ public class CompletedChallengeFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.completed_challenge_image_view);
 
         challengeTitleTextView.setText(getString(R.string.challenge) + " "+ mChallenge.getOrder() + ": " + mChallenge.getTitle());
-        imageView.setBackgroundColor(Color.RED);
+        Drawable myIcon = getResources().getDrawable(R.drawable.under_sea_animals);
+        imageView.setImageDrawable(myIcon);
     }
 }
