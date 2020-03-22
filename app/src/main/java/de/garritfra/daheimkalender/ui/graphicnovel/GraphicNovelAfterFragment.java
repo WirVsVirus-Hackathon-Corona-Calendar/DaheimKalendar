@@ -14,7 +14,7 @@ import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
-public class GraphicNovelChallengeFragment extends Fragment {
+public class GraphicNovelAfterFragment extends Fragment {
 
     private Challenge mChallenge;
 
@@ -49,7 +49,7 @@ public class GraphicNovelChallengeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ChallengeRepository.getInstance().setCompleted(mChallenge, true);
-                NavHostFragment.findNavController(GraphicNovelChallengeFragment.this)
+                NavHostFragment.findNavController(GraphicNovelAfterFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
