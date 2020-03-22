@@ -11,8 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import de.garritfra.daheimkalender.R;
@@ -71,8 +69,8 @@ public class ChallengeInformationsFragment extends Fragment {
         TextView txt_headlineMaterial =  view.findViewById(R.id.txt_headlineMaterial);
         txt_headlineMaterial.setText(R.string.titel_material);
 
-        //setupResourceFields(challenge.getMaterials());
-        //setupInstructionFields(challenge.getMaterials());
+        setupResourceFields(challenge.getMaterials());
+        setupInstructionFields(challenge.getMaterials());
 
         TextView txt_headlineInstruction = view.findViewById(R.id.txt_headlineInstruction);
         txt_headlineInstruction.setText(R.string.titel_instruction);
@@ -89,6 +87,7 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setVisibility(View.INVISIBLE);
                 txt_material4.setVisibility(View.INVISIBLE);
                 txt_material5.setVisibility(View.INVISIBLE);
+                break;
             case 1:
                 txt_material1.setVisibility(View.VISIBLE);
                 txt_material1.setText(materials.get(0).toString());
@@ -96,6 +95,7 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setVisibility(View.INVISIBLE);
                 txt_material4.setVisibility(View.INVISIBLE);
                 txt_material5.setVisibility(View.INVISIBLE);
+                break;
             case 2:
                 txt_material1.setVisibility(View.VISIBLE);
                 txt_material1.setText(materials.get(0).toString());
@@ -104,6 +104,7 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setVisibility(View.INVISIBLE);
                 txt_material4.setVisibility(View.INVISIBLE);
                 txt_material5.setVisibility(View.INVISIBLE);
+                break;
             case 3:
                 txt_material1.setVisibility(View.VISIBLE);
                 txt_material1.setText(materials.get(0).toString());
@@ -113,6 +114,7 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setText(materials.get(2).toString());
                 txt_material4.setVisibility(View.INVISIBLE);
                 txt_material5.setVisibility(View.INVISIBLE);
+                break;
             case 4:
                 txt_material1.setVisibility(View.VISIBLE);
                 txt_material1.setText(materials.get(0));
@@ -123,6 +125,7 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material4.setVisibility(View.VISIBLE);
                 txt_material4.setText(materials.get(3));
                 txt_material5.setVisibility(View.INVISIBLE);
+                break;
             case 5:
                 txt_material1.setVisibility(View.VISIBLE);
                 txt_material1.setText(materials.get(0));
@@ -134,6 +137,7 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material4.setText(materials.get(3));
                 txt_material5.setVisibility(View.VISIBLE);
                 txt_material5.setText(materials.get(4));
+                break;
         }
     }
 
@@ -176,8 +180,6 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction2.setText(instructions.get(1));
                 txt_instruction3.setVisibility(View.VISIBLE);
                 txt_instruction3.setText(instructions.get(2));
-                txt_instruction4.setVisibility(View.VISIBLE);
-                txt_instruction4.setText(instructions.get(3));
                 txt_instruction5.setVisibility(View.INVISIBLE);
             case 5:
                 txt_instruction1.setVisibility(View.VISIBLE);
@@ -186,10 +188,6 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction2.setText(instructions.get(1));
                 txt_instruction3.setVisibility(View.VISIBLE);
                 txt_instruction3.setText(instructions.get(2));
-                txt_instruction4.setVisibility(View.VISIBLE);
-                txt_instruction4.setText(instructions.get(3));
-                txt_instruction5.setVisibility(View.VISIBLE);
-                txt_instruction5.setText(instructions.get(4));
         }
     }
 }
