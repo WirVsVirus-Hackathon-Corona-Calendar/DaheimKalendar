@@ -41,4 +41,14 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="your_challenge_today">Dein heutiges Abenteuer </string>
+
+
+    <string name="titel_material">Das brauchst du:</string>
+    <string name="titel_instruction">Anleitung:</string>
+    <string name="beispiel_text_material">La Li Lu
+    Pup
+    mooop
+    haha
+    nuuu</string>
+    <string name="beispiel_text_instruction">Tuff, tuff</string>
 </resources>

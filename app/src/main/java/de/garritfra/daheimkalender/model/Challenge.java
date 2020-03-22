@@ -2,8 +2,6 @@ package de.garritfra.daheimkalender.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -23,7 +21,7 @@ public class Challenge extends RealmObject {
     @SerializedName("completion_date")
     private long completionDate;
     @SerializedName("order")
-    private int order;
+    private double order;
     private boolean isCompleted = false;
     private String imagePath;
 
@@ -69,11 +67,11 @@ public class Challenge extends RealmObject {
         return iconUrl;
     }
 
-    public int getOrder() {
+    public double getOrder() {
         return order;
     }
 
-    public void setOrder(int order) { this.order = order; }
+    public void setOrder(double order) { this.order = order; }
 
     public void setIconUrl(String iconUrl) {
         this.iconUrl = iconUrl;
