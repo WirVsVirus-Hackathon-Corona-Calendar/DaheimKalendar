@@ -61,18 +61,25 @@ public class TodayChallFragment extends Fragment {
         Button startButton = view.findViewById(R.id.button_start);
 
         Challenge challenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
-        if (challenge.getTitle() != null) {
-            TextView textView = view.findViewById(R.id.txt_today_challenge_title);
+        final TextView textView = view.findViewById(R.id.txt_today_challenge_title);
+        final TextView healineTextView = view.findViewById(R.id.txt_today_challenge_headline);
+        final ImageView imageView = view.findViewById(R.id.img_today_chall_bg);
+
+        if (challenge != null) {
             textView.setText(challenge.getTitle());
+            ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
+                @Override
+                public void onImageLoaded(Bitmap bitMap) {
+                    imageView.setImageBitmap(bitMap);
+                }
+            }, getContext());
+        } else {
+            healineTextView.setText(R.string.no_challenge_for_today);
+            textView.setText(null);
+            imageView.setImageBitmap(null);
+            startButton.setVisibility(View.GONE);
         }
 
-        final ImageView imageView = view.findViewById(R.id.img_today_chall_bg);
-        ImageStorage.getInstance().getImage(challenge.getIconUrl(), new ImageStorage.ImageStorageListener() {
-            @Override
-            public void onImageLoaded(Bitmap bitMap) {
-                imageView.setImageBitmap(bitMap);
-            }
-        }, getContext());
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
