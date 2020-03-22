@@ -44,7 +44,7 @@ public class CompletedChallengeFragment extends Fragment {
         TextView challengeDescriptionTextView = view.findViewById(R.id.completed_challenge_description_text_view);
         ImageView imageView = view.findViewById(R.id.completed_challenge_image_view);
 
-        challengeTitleTextView.setText(getString(R.string.challenge) " "+ mChallenge.getOrder() + ": "mChallenge.getTitle());
+        challengeTitleTextView.setText(getString(R.string.challenge) + " "+ mChallenge.getOrder() + ": " + mChallenge.getTitle());
         imageView.setBackgroundColor(Color.RED);
     }
 }
