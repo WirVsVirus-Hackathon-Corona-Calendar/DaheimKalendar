@@ -10,5 +10,7 @@
     <color name="primaryWhite">#FFFFFF</color>
     <color name="headlineGrey">#878787</color>
 
+    <color name="black">#000000</color>
+
     <color name="black_overlay">#66000000</color>
 </resources>

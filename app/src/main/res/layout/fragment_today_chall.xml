@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="1"
-        android:background="@drawable/under_sea_animals"
+        android:src="@drawable/under_sea_animals"
         android:backgroundTint="@color/black_overlay"
         android:backgroundTintMode="add"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:scaleType="centerCrop"
+        />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_start"
@@ -39,20 +41,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/txt_today_challenge_headline"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
-        android:elevation="30dp"
-        android:foregroundTint="#FFFFFF"
         android:text="@string/your_challenge_today"
-        android:outlineProvider="paddedBounds"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        app:drawableTint="#FFFFFF"
+        android:shadowColor="@color/black"
+        android:shadowDx="3dp"
+        android:shadowDy="3dp"
+        android:shadowRadius="6dp"
         app:layout_constraintBottom_toTopOf="@+id/button_start"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/appCompatImageView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        android:layout_marginHorizontal="70dp"
+        android:gravity="center"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
