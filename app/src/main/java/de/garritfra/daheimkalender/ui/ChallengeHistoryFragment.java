@@ -24,6 +24,7 @@ import java.util.List;
 import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
+import io.realm.Sort;
 
 /**
  * A fragment representing a list of Items.
@@ -89,7 +90,7 @@ public class ChallengeHistoryFragment extends Fragment {
         constraintSet1.clone(getActivity(), R.layout.fragment_challenge_history);
 
         List challenges;
-        challenges = ChallengeRepository.getInstance().readAll();
+        challenges = ChallengeRepository.getInstance().readAll().sort("order", Sort.ASCENDING);
 
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         DisplayMetrics outMetrics = new DisplayMetrics ();
@@ -114,7 +115,11 @@ public class ChallengeHistoryFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     /**
