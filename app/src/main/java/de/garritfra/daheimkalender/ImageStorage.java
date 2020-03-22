@@ -45,7 +45,7 @@ public class ImageStorage {
     }
 
     public String storeChallengeImage(String challengeId, Bitmap bitmap, Context context) {
-        String path = NameUtil.getResourceImageName(challengeId);
+        String path = NameUtil.getChallengeImageName(challengeId);
         storeImage(path, bitmap, context);
         return path;
     }
