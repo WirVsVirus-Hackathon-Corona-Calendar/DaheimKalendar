@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.8"
-        android:src="@drawable/background"
+        android:src="@drawable/unknown"
         android:backgroundTint="@color/black_overlay"
         android:backgroundTintMode="add"
         android:elevation="-10dp"
