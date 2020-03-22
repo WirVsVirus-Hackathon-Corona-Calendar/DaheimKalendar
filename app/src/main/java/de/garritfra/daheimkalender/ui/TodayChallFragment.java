@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 
@@ -63,8 +64,7 @@ public class TodayChallFragment extends Fragment {
     private void openChallangeInformation(){
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.container, new ChallengeInformationsFragment(),"InformationsFragment");
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.fragment_container, new ChallengeInformationsFragment(ChallengeRepository.getInstance().getNextAvailableChallenge()));
         transaction.commit();
     }
 

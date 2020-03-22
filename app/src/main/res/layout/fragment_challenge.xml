@@ -13,78 +13,93 @@
         android:layout_height="match_parent"
         android:scrollbars="none">
         <!-- LinearLayout Inside ScrollView -->
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
-        <LinearLayout
-            android:id="@+id/materialLayout"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageChallenge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:weightSum="2">
+            android:layout_weight="1"
+            app:srcCompat="@drawable/wirvsvirus" />
 
-            <!-- place one TextView and one EditText inside layout using weight property -->
+    <LinearLayout
+        android:id="@+id/materialLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:weightSum="2">
 
-            <TextView
-                android:id="@+id/txt_headlineMaterial"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp" />
-            <TextView
-                android:id="@+id/txt_material"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/instructionsLayout"
+        <TextView
+            android:id="@+id/txt_headlineMaterial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:weightSum="2">
-
-            <TextView
-                android:id="@+id/txt_headlineInstruction"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp" />
-            <TextView
-                android:id="@+id/txt_instruction"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="0.6"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/imageLayout"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:textAppearance="@style/GraphicNovelHeadline"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp" />
+        <TextView
+            android:id="@+id/txt_material"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:weightSum="2">
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dog" />
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/instructionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/txt_headlineInstruction"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:textAppearance="@style/GraphicNovelHeadline"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp" />
+        <TextView
+            android:id="@+id/txt_instruction"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.6"
+            android:background="@drawable/graphic_novel_body_background"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/imageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/imageInstruction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/dog" />
+    </LinearLayout>
+</LinearLayout>
+
     </ScrollView>
 </LinearLayout>
