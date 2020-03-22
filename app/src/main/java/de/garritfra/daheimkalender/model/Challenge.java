@@ -13,7 +13,6 @@ public class Challenge extends RealmObject {
     private String body;
     @SerializedName("icon_url")
     private String iconUrl;
-    private String[] steps;
 
     // TODO: Date/Calendar/long?
     @SerializedName("completion_date")
@@ -97,13 +96,5 @@ public class Challenge extends RealmObject {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
-    }
-
-    public String[] getSteps() {
-        return steps;
-    }
-
-    public void setSteps(String[] steps) {
-        this.steps = steps;
     }
 }
