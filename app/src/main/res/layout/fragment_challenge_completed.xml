@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:textColor="@color/headlineGrey"
-        android:text="@string/completed_challenge_title"
+        android:text="@string/diary_title"
         android:layout_marginTop="21dp"
         android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,12 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import org.w3c.dom.Text;
+
+import javax.xml.datatype.Duration;
 
 import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.ImageStorage;
@@ -85,7 +88,13 @@ public class TodayChallFragment extends Fragment {
     private void openChallangeInformation(){
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.fragment_container, new ChallengeInformationsFragment(ChallengeRepository.getInstance().getNextAvailableChallenge()));
+        Challenge nextChallenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
+        if (nextChallenge != null) {
+            transaction.replace(R.id.fragment_container, new ChallengeInformationsFragment(ChallengeRepository.getInstance().getNextAvailableChallenge()));
+        } else {
+            Toast toast = Toast.makeText(getContext(), R.string.no_challenge_for_today, Toast.LENGTH_LONG);
+            toast.show();
+        }
         transaction.commit();
     }
 

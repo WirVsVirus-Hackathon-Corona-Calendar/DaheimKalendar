@@ -1,7 +1,9 @@
 package de.garritfra.daheimkalender.ui;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +15,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.net.URL;
 import java.util.List;
 
+import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 
+import static android.app.Activity.RESULT_OK;
+
 public class ChallengeInformationsFragment extends Fragment {
 
 
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private String mChallengeId;
     TextView txt_material1, txt_material2, txt_material3, txt_material4, txt_material5, txt_instruction1, txt_instruction2, txt_instruction3, txt_instruction4, txt_instruction5;
 
     // TODO: Customize parameter argument names
@@ -104,7 +110,41 @@ public class ChallengeInformationsFragment extends Fragment {
 
         Button btnComplete = view.findViewById(R.id.btn_challenge_complete);
 
-        btnComplete.setText("Complete");
+        btnComplete.setText(R.string.btn_complete_title);
+
+        btnComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ChallengeRepository.getInstance().setCompleted(challenge, true);
+                ChallengeRepository.getInstance().setCompleted(challenge, true);
+                mChallengeId = challenge.getId();
+                dispatchTakePictureIntent();
+                //TODO: move to done fragment
+            }
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+            if (mChallengeId != null) {
+                Challenge challenge = ChallengeRepository.getInstance().readOneById(mChallengeId);
+                String path = ImageStorage.getInstance().storeChallengeImage(challenge.getId(), imageBitmap, getContext());
+                ChallengeRepository.getInstance().setImagePath(challenge, path);
+            }
+        }
+    }
+
+    public void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
     private void setupResourceFields(List<String> materials) {
