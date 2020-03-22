@@ -48,4 +48,10 @@
     <string name="titel_instruction">Anleitung:</string>
     <string name="btn_complete_title">Fertig</string>
     <string name="beispiel_text_instruction">Tuff, tuff</string>
+
+    <string name="photo_dialog_congrats">Super!</string>
+    <string name="photo_dialog_title">Aufgabe geschafft</string>
+    <string name="photo_dialog_text">Magst du ein Photo von deinem Ergebnis machen?</string>
+
+    <string name="of_course">Na klar!</string>
 </resources>
