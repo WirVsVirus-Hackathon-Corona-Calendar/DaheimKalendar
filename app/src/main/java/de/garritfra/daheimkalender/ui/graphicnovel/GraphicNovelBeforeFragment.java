@@ -43,8 +43,6 @@ public class GraphicNovelBeforeFragment extends Fragment {
         }
 
         if (mChallenge != null) {
-            TextView headline = view.findViewById(R.id.grapicNovelTitle);
-            headline.setText(mChallenge.getTitle());
             TextView body = view.findViewById(R.id.graphicNovelBodyText);
             body.setText(mChallenge.getStoryBefore());
             final ImageView scene = view.findViewById(R.id.graphicNovelBackground);

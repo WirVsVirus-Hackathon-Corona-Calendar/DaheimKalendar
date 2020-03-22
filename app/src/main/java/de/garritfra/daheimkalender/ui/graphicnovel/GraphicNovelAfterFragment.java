@@ -41,8 +41,6 @@ public class GraphicNovelAfterFragment extends Fragment {
         }
 
         if (mChallenge != null) {
-            TextView headline = view.findViewById(R.id.grapicNovelTitle);
-            headline.setText(mChallenge.getTitle());
             TextView body = view.findViewById(R.id.graphicNovelBodyText);
             body.setText(mChallenge.getStoryAfter());
             final ImageView imageView = view.findViewById(R.id.graphicNovelBackground);
@@ -59,8 +57,8 @@ public class GraphicNovelAfterFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ChallengeRepository.getInstance().setCompleted(mChallenge, true);
-                NavHostFragment.findNavController(GraphicNovelAfterFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                //NavHostFragment.findNavController(GraphicNovelAfterFragment.this)
+                //        .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
     }
