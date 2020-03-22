@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +41,8 @@ public class GraphicNovelAfterFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         if (mChallenge != null) {
+            ScrollView scrollView = view.findViewById(R.id.graphicNovelBody);
+            scrollView.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.animation_fadein));
             TextView body = view.findViewById(R.id.graphicNovelBodyText);
             body.setText(mChallenge.getStoryAfter());
             final ImageView imageView = view.findViewById(R.id.graphicNovelBackground);
