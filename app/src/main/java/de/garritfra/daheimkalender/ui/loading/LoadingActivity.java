@@ -1,14 +1,22 @@
 package de.garritfra.daheimkalender.ui.loading;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 import de.garritfra.daheimkalender.ChallengeRepository;
+import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.MainActivity;
 import de.garritfra.daheimkalender.R;
+import de.garritfra.daheimkalender.model.Challenge;
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -38,6 +46,25 @@ public class LoadingActivity extends AppCompatActivity implements ChallengeRepos
 
     @Override
     public void onUpdateFinished() {
+        //challenges loaded, loading graphics
+        RealmResults<Challenge> result = ChallengeRepository.getInstance().readAll();
+        Iterator<Challenge> it = result.iterator();
+        List<String> urls = new LinkedList<>();
+        while (it.hasNext()) {
+            Challenge challenge = it.next();
+            urls.add(challenge.getIconUrl());
+        }
+        String[] urlArray = new String[urls.size()];
+        urlArray = urls.toArray(urlArray);
+        ImageStorage.getInstance().getImages(urlArray, new ImageStorage.ImageStorageListener() {
+            @Override
+            public void onImageLoaded(Bitmap bitMap) {
+                startAfterLoading();
+            }
+        });
+    }
+
+    private void startAfterLoading() {
         Intent i = new Intent(LoadingActivity.this, MainActivity.class);
         startActivity(i);
         finish();
