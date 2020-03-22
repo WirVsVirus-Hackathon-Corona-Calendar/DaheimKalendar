@@ -10,12 +10,13 @@
 
     <ImageView
         android:id="@+id/wizardImageView"
-        android:layout_width="331dp"
-        android:layout_height="606dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@color/primaryWhite"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imf_fine" />
+        app:srcCompat="@drawable/imf_forest" />
 </androidx.constraintlayout.widget.ConstraintLayout>
