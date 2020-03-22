@@ -27,7 +27,7 @@ import okhttp3.Response;
 
 public class ChallengeRepository {
 
-    private Boolean devMode = true;
+    private Boolean devMode = false;
 
     private static ChallengeRepository sharedInstance = new ChallengeRepository();
 
