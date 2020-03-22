@@ -6,13 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import org.w3c.dom.Text;
+
 import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.R;
+import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
 
 
@@ -49,6 +53,12 @@ public class TodayChallFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_today_chall, container, false);
 
         Button startButton = view.findViewById(R.id.button_start);
+
+        Challenge challenge = ChallengeRepository.getInstance().getNextAvailableChallenge();
+        if (challenge.getTitle() != null) {
+            TextView textView = view.findViewById(R.id.txt_today_challenge_headline);
+            textView.setText(challenge.getTitle());
+        }
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override

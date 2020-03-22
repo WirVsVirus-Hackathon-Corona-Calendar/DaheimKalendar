@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.8"
-        android:src="@drawable/imf_forest"
+        android:src="@drawable/background"
         android:backgroundTint="@color/black_overlay"
         android:backgroundTintMode="add"
         android:elevation="-10dp"
@@ -41,7 +41,7 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.8" />
 
     <TextView
         android:id="@+id/txt_today_challenge_headline"
@@ -50,16 +50,19 @@
         android:text="@string/your_challenge_today"
         android:textColor="#DD000000"
         android:textSize="30sp"
+        android:elevation="10dp"
         android:shadowColor="@color/black"
-        android:shadowDx="3dp"
-        android:shadowDy="3dp"
-        android:shadowRadius="6dp"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="6"
+        android:background="@drawable/title_background"
         app:layout_constraintBottom_toTopOf="@+id/button_start"
         app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.4"
-        android:layout_marginHorizontal="70dp"
+        app:layout_constraintVertical_bias="0.3"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
         android:gravity="center"
         />
 
