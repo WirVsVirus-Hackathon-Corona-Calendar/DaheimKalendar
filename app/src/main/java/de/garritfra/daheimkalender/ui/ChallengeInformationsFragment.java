@@ -29,7 +29,8 @@ public class ChallengeInformationsFragment extends Fragment {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private String mChallengeId;
-    TextView txt_material1, txt_material2, txt_material3, txt_material4, txt_material5, txt_instruction1, txt_instruction2, txt_instruction3, txt_instruction4, txt_instruction5;
+    TextView txt_material1, txt_material2, txt_material3, txt_material4, txt_material5, txt_material6, txt_material7, txt_material8, txt_material9, txt_material10;
+    TextView txt_instruction1, txt_instruction2, txt_instruction3, txt_instruction4, txt_instruction5, txt_instruction6, txt_instruction7, txt_instruction8, txt_instruction9, txt_instruction10;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -76,12 +77,22 @@ public class ChallengeInformationsFragment extends Fragment {
         txt_material3 = view.findViewById(R.id.txt_material3);
         txt_material4 = view.findViewById(R.id.txt_material4);
         txt_material5 = view.findViewById(R.id.txt_material5);
+        txt_material6 = view.findViewById(R.id.txt_material6);
+        txt_material7 = view.findViewById(R.id.txt_material7);
+        txt_material8 = view.findViewById(R.id.txt_material8);
+        txt_material9 = view.findViewById(R.id.txt_material9);
+        txt_material10 = view.findViewById(R.id.txt_material10);
 
         txt_instruction1 = view.findViewById(R.id.txt_instruction1);
         txt_instruction2 = view.findViewById(R.id.txt_instruction2);
         txt_instruction3 = view.findViewById(R.id.txt_instruction3);
         txt_instruction4 = view.findViewById(R.id.txt_instruction4);
         txt_instruction5 = view.findViewById(R.id.txt_instruction5);
+        txt_instruction6 = view.findViewById(R.id.txt_instruction6);
+        txt_instruction7 = view.findViewById(R.id.txt_instruction7);
+        txt_instruction8 = view.findViewById(R.id.txt_instruction8);
+        txt_instruction9 = view.findViewById(R.id.txt_instruction9);
+        txt_instruction10 = view.findViewById(R.id.txt_instruction10);
 
         TextView txt_headlineMaterial =  view.findViewById(R.id.txt_headlineMaterial);
         txt_headlineMaterial.setText(R.string.titel_material);
@@ -155,6 +166,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setVisibility(View.GONE);
                 txt_material4.setVisibility(View.GONE);
                 txt_material5.setVisibility(View.GONE);
+                txt_material6.setVisibility(View.GONE);
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
                 break;
             case 1:
                 txt_material1.setVisibility(View.VISIBLE);
@@ -163,6 +179,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setVisibility(View.GONE);
                 txt_material4.setVisibility(View.GONE);
                 txt_material5.setVisibility(View.GONE);
+                txt_material6.setVisibility(View.GONE);
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
                 break;
             case 2:
                 txt_material1.setVisibility(View.VISIBLE);
@@ -172,6 +193,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setVisibility(View.GONE);
                 txt_material4.setVisibility(View.GONE);
                 txt_material5.setVisibility(View.GONE);
+                txt_material6.setVisibility(View.GONE);
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
                 break;
             case 3:
                 txt_material1.setVisibility(View.VISIBLE);
@@ -182,6 +208,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material3.setText(materials.get(2).toString());
                 txt_material4.setVisibility(View.GONE);
                 txt_material5.setVisibility(View.GONE);
+                txt_material6.setVisibility(View.GONE);
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
                 break;
             case 4:
                 txt_material1.setVisibility(View.VISIBLE);
@@ -193,6 +224,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material4.setVisibility(View.VISIBLE);
                 txt_material4.setText(materials.get(3));
                 txt_material5.setVisibility(View.GONE);
+                txt_material6.setVisibility(View.GONE);
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
                 break;
             case 5:
                 txt_material1.setVisibility(View.VISIBLE);
@@ -205,6 +241,111 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_material4.setText(materials.get(3));
                 txt_material5.setVisibility(View.VISIBLE);
                 txt_material5.setText(materials.get(4));
+                txt_material6.setVisibility(View.GONE);
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
+                break;
+            case 6:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.VISIBLE);
+                txt_material5.setText(materials.get(4));
+                txt_material6.setVisibility(View.VISIBLE);
+                txt_material6.setText(materials.get(5));
+                txt_material7.setVisibility(View.GONE);
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
+                break;
+            case 7:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.VISIBLE);
+                txt_material5.setText(materials.get(4));
+                txt_material6.setVisibility(View.VISIBLE);
+                txt_material6.setText(materials.get(5));
+                txt_material7.setVisibility(View.VISIBLE);
+                txt_material7.setText(materials.get(6));
+                txt_material8.setVisibility(View.GONE);
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
+                break;
+            case 8:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.VISIBLE);
+                txt_material5.setText(materials.get(4));
+                txt_material6.setVisibility(View.VISIBLE);
+                txt_material6.setText(materials.get(5));
+                txt_material7.setVisibility(View.VISIBLE);
+                txt_material7.setText(materials.get(6));
+                txt_material8.setVisibility(View.VISIBLE);
+                txt_material8.setText(materials.get(7));
+                txt_material9.setVisibility(View.GONE);
+                txt_material10.setVisibility(View.GONE);
+                break;
+            case 9:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.VISIBLE);
+                txt_material5.setText(materials.get(4));
+                txt_material6.setVisibility(View.VISIBLE);
+                txt_material6.setText(materials.get(5));
+                txt_material7.setVisibility(View.VISIBLE);
+                txt_material7.setText(materials.get(6));
+                txt_material8.setVisibility(View.VISIBLE);
+                txt_material8.setText(materials.get(7));
+                txt_material9.setVisibility(View.VISIBLE);
+                txt_material9.setText(materials.get(8));
+                txt_material10.setVisibility(View.GONE);
+                break;
+            case 10:
+                txt_material1.setVisibility(View.VISIBLE);
+                txt_material1.setText(materials.get(0));
+                txt_material2.setVisibility(View.VISIBLE);
+                txt_material2.setText(materials.get(1));
+                txt_material3.setVisibility(View.VISIBLE);
+                txt_material3.setText(materials.get(2));
+                txt_material4.setVisibility(View.VISIBLE);
+                txt_material4.setText(materials.get(3));
+                txt_material5.setVisibility(View.VISIBLE);
+                txt_material5.setText(materials.get(4));
+                txt_material6.setVisibility(View.VISIBLE);
+                txt_material6.setText(materials.get(5));
+                txt_material7.setVisibility(View.VISIBLE);
+                txt_material7.setText(materials.get(6));
+                txt_material8.setVisibility(View.VISIBLE);
+                txt_material8.setText(materials.get(7));
+                txt_material9.setVisibility(View.VISIBLE);
+                txt_material9.setText(materials.get(8));
+                txt_material10.setVisibility(View.VISIBLE);
+                txt_material10.setText(materials.get(9));
                 break;
         }
     }
@@ -217,6 +358,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction3.setVisibility(View.GONE);
                 txt_instruction4.setVisibility(View.GONE);
                 txt_instruction5.setVisibility(View.GONE);
+                txt_instruction6.setVisibility(View.GONE);
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
                 break;
             case 1:
                 txt_instruction1.setVisibility(View.VISIBLE);
@@ -225,6 +371,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction3.setVisibility(View.GONE);
                 txt_instruction4.setVisibility(View.GONE);
                 txt_instruction5.setVisibility(View.GONE);
+                txt_instruction6.setVisibility(View.GONE);
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
                 break;
             case 2:
                 txt_instruction1.setVisibility(View.VISIBLE);
@@ -234,6 +385,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction3.setVisibility(View.GONE);
                 txt_instruction4.setVisibility(View.GONE);
                 txt_instruction5.setVisibility(View.GONE);
+                txt_instruction6.setVisibility(View.GONE);
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
                 break;
             case 3:
                 txt_instruction1.setVisibility(View.VISIBLE);
@@ -244,6 +400,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction3.setText(instructions.get(2));
                 txt_instruction4.setVisibility(View.GONE);
                 txt_instruction5.setVisibility(View.GONE);
+                txt_instruction6.setVisibility(View.GONE);
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
                 break;
             case 4:
                 txt_instruction1.setVisibility(View.VISIBLE);
@@ -255,6 +416,11 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction4.setVisibility(View.VISIBLE);
                 txt_instruction4.setText(instructions.get(3));
                 txt_instruction5.setVisibility(View.GONE);
+                txt_instruction6.setVisibility(View.GONE);
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
                 break;
             case 5:
                 txt_instruction1.setVisibility(View.VISIBLE);
@@ -267,6 +433,111 @@ public class ChallengeInformationsFragment extends Fragment {
                 txt_instruction4.setText(instructions.get(3));
                 txt_instruction5.setVisibility(View.VISIBLE);
                 txt_instruction5.setText(instructions.get(4));
+                txt_instruction6.setVisibility(View.GONE);
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
+                break;
+            case 6:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.VISIBLE);
+                txt_instruction5.setText(instructions.get(4));
+                txt_instruction6.setVisibility(View.VISIBLE);
+                txt_instruction6.setText(instructions.get(5));
+                txt_instruction7.setVisibility(View.GONE);
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
+                break;
+            case 7:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.VISIBLE);
+                txt_instruction5.setText(instructions.get(4));
+                txt_instruction6.setVisibility(View.VISIBLE);
+                txt_instruction6.setText(instructions.get(5));
+                txt_instruction7.setVisibility(View.VISIBLE);
+                txt_instruction7.setText(instructions.get(6));
+                txt_instruction8.setVisibility(View.GONE);
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
+                break;
+            case 8:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.VISIBLE);
+                txt_instruction5.setText(instructions.get(4));
+                txt_instruction6.setVisibility(View.VISIBLE);
+                txt_instruction6.setText(instructions.get(5));
+                txt_instruction7.setVisibility(View.VISIBLE);
+                txt_instruction7.setText(instructions.get(6));
+                txt_instruction8.setVisibility(View.VISIBLE);
+                txt_instruction8.setText(instructions.get(7));
+                txt_instruction9.setVisibility(View.GONE);
+                txt_instruction10.setVisibility(View.GONE);
+                break;
+            case 9:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.VISIBLE);
+                txt_instruction5.setText(instructions.get(4));
+                txt_instruction6.setVisibility(View.VISIBLE);
+                txt_instruction6.setText(instructions.get(5));
+                txt_instruction7.setVisibility(View.VISIBLE);
+                txt_instruction7.setText(instructions.get(6));
+                txt_instruction8.setVisibility(View.VISIBLE);
+                txt_instruction8.setText(instructions.get(7));
+                txt_instruction9.setVisibility(View.VISIBLE);
+                txt_material9.setText(instructions.get(8));
+                txt_instruction10.setVisibility(View.GONE);
+                break;
+            case 10:
+                txt_instruction1.setVisibility(View.VISIBLE);
+                txt_instruction1.setText(instructions.get(0));
+                txt_instruction2.setVisibility(View.VISIBLE);
+                txt_instruction2.setText(instructions.get(1));
+                txt_instruction3.setVisibility(View.VISIBLE);
+                txt_instruction3.setText(instructions.get(2));
+                txt_instruction4.setVisibility(View.VISIBLE);
+                txt_instruction4.setText(instructions.get(3));
+                txt_instruction5.setVisibility(View.VISIBLE);
+                txt_instruction5.setText(instructions.get(4));
+                txt_instruction6.setVisibility(View.VISIBLE);
+                txt_instruction6.setText(instructions.get(5));
+                txt_instruction7.setVisibility(View.VISIBLE);
+                txt_instruction7.setText(instructions.get(6));
+                txt_instruction8.setVisibility(View.VISIBLE);
+                txt_instruction8.setText(instructions.get(7));
+                txt_instruction9.setVisibility(View.VISIBLE);
+                txt_material9.setText(instructions.get(8));
+                txt_instruction10.setVisibility(View.VISIBLE);
+                txt_instruction10.setText(instructions.get(9));
                 break;
         }
     }

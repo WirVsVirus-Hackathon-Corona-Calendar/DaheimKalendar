@@ -27,6 +27,8 @@ import okhttp3.Response;
 
 public class ChallengeRepository {
 
+    private Boolean devMode = true;
+
     private static ChallengeRepository sharedInstance = new ChallengeRepository();
 
     RealmConfiguration config = new RealmConfiguration.Builder()
@@ -54,21 +56,25 @@ public class ChallengeRepository {
     }
 
     public Challenge getNextAvailableChallenge() {
-        Challenge lastCompleted = realm.where(Challenge.class).equalTo("isCompleted", true).sort("order", Sort.DESCENDING).findFirst();
-        if (lastCompleted != null) {
-            // check if day has passed since last completed
-            Calendar completionDate = Calendar.getInstance();
-            completionDate.setTimeInMillis(lastCompleted.getCompletionDate());
-            Calendar now = Calendar.getInstance();
-            now.setTimeInMillis(new Date().getTime());
-            if (completionDate.get(Calendar.YEAR) == now.get(Calendar.YEAR) && completionDate.get(Calendar.MONTH) == now.get(Calendar.MONTH) && completionDate.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)) {
-                return realm.where(Challenge.class).equalTo("isCompleted", false).sort("order", Sort.ASCENDING).findFirst();
+        if (!devMode) {
+            Challenge lastCompleted = realm.where(Challenge.class).equalTo("isCompleted", true).sort("order", Sort.DESCENDING).findFirst();
+            if (lastCompleted != null) {
+                // check if day has passed since last completed
+                Calendar completionDate = Calendar.getInstance();
+                completionDate.setTimeInMillis(lastCompleted.getCompletionDate());
+                Calendar now = Calendar.getInstance();
+                now.setTimeInMillis(new Date().getTime());
+                if (completionDate.get(Calendar.YEAR) == now.get(Calendar.YEAR) && completionDate.get(Calendar.MONTH) == now.get(Calendar.MONTH) && completionDate.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)) {
+                    return realm.where(Challenge.class).equalTo("isCompleted", false).sort("order", Sort.ASCENDING).findFirst();
+                } else {
+                    return null;
+                }
             } else {
-                return null;
+                // no completed challenges yet, so we return the first one
+                return realm.where(Challenge.class).sort("order", Sort.ASCENDING).findFirst();
             }
         } else {
-            // no completed challenges yet, so we return the first one
-            return realm.where(Challenge.class).sort("order", Sort.ASCENDING).findFirst();
+            return realm.where(Challenge.class).equalTo("isCompleted", false).sort("order", Sort.ASCENDING).findFirst();
         }
     }
 
