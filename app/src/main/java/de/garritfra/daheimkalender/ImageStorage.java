@@ -83,7 +83,7 @@ public class ImageStorage {
         }
     }
 
-    public void getImages(final String[] urls, final ImageStorageListener listener, Context context) {
+    public void getImages(final String[] urls, final ImageLoadingListener listener, Context context) {
         final List<String> finishedLoads = new LinkedList<String>();
         for (int i = 0; i < urls.length; i++) {
             final String url = urls[i];
@@ -91,9 +91,8 @@ public class ImageStorage {
                 @Override
                 public void onImageLoaded(Bitmap bitMap) {
                     finishedLoads.add(url);
-                    if (finishedLoads.size() == urls.length) {
-                        listener.onImageLoaded(null);
-                    }
+                    int loaded = finishedLoads.size();
+                    listener.onElementLoaded( loaded,loaded == urls.length);
                 }
             }, context);
         }
@@ -139,5 +138,9 @@ public class ImageStorage {
 
     public interface ImageStorageListener {
         public void onImageLoaded(Bitmap bitMap);
+    }
+
+    public interface ImageLoadingListener {
+        public void onElementLoaded(int loadedImages, Boolean isFinal);
     }
 }
