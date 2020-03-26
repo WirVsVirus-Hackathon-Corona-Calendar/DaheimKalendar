@@ -25,6 +25,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="30dp"
         android:theme="@style/ProgressBarTint"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/progress_text_view">
@@ -44,4 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
+    <ProgressBar
+        android:id="@+id/loading_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_marginBottom="40dp"
+        android:theme="@style/ProgressBarTint"
+        app:layout_constraintStart_toStartOf="@id/progress_text_view"
+        app:layout_constraintEnd_toEndOf="@id/progress_text_view"
+        app:layout_constraintBottom_toBottomOf="@id/progress_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
