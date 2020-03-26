@@ -17,7 +17,6 @@ import de.garritfra.daheimkalender.ChallengeRepository;
 import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
-import de.garritfra.daheimkalender.util.NameUtil;
 
 import static android.app.Activity.RESULT_OK;
 

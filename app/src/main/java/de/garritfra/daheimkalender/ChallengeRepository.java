@@ -211,6 +211,7 @@ public class ChallengeRepository {
             @Override
             public void execute(Realm realm) {
                 challenge.setCompleted(completed);
+                challenge.setCompletionDate(new Date().getTime());
             }
         });
     }
