@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
+
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.ui.WebContentActivity;
 
@@ -42,6 +44,13 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 onOpenWebBrowser("parental_notice.html");
+            }
+        });
+
+        view.findViewById(R.id.licenses_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), OssLicensesMenuActivity.class));
             }
         });
 
