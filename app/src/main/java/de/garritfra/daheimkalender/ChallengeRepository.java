@@ -61,10 +61,10 @@ public class ChallengeRepository {
             if (lastCompleted != null) {
                 // check if day has passed since last completed
                 Calendar completionDate = Calendar.getInstance();
-                completionDate.setTimeInMillis(lastCompleted.getCompletionDate());
+                completionDate.setTimeInMillis(nextDayStart(lastCompleted.getCompletionDate()));
                 Calendar now = Calendar.getInstance();
                 now.setTimeInMillis(new Date().getTime());
-                if (completionDate.get(Calendar.YEAR) == now.get(Calendar.YEAR) && completionDate.get(Calendar.MONTH) == now.get(Calendar.MONTH) && completionDate.get(Calendar.DAY_OF_MONTH) == now.get(Calendar.DAY_OF_MONTH)) {
+                if (completionDate.get(Calendar.YEAR) <= now.get(Calendar.YEAR) && completionDate.get(Calendar.MONTH) <= now.get(Calendar.MONTH) && completionDate.get(Calendar.DAY_OF_MONTH) <= now.get(Calendar.DAY_OF_MONTH)) {
                     return realm.where(Challenge.class).equalTo("isCompleted", false).sort("order", Sort.ASCENDING).findFirst();
                 } else {
                     return null;
@@ -76,6 +76,18 @@ public class ChallengeRepository {
         } else {
             return realm.where(Challenge.class).equalTo("isCompleted", false).sort("order", Sort.ASCENDING).findFirst();
         }
+    }
+
+    private long nextDayStart(long date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        cal.add(Calendar.DATE, 1);
+
+        return cal.getTimeInMillis();
     }
 
     public void update(final OnUpdateFinishedListener listener) {
