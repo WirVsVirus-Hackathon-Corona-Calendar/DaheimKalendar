@@ -1,19 +1,15 @@
 package de.garritfra.daheimkalender.ui;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -21,9 +17,6 @@ import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.ChallengeHistoryFragment.OnListFragmentInteractionListener;
-import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
-
-import static java.security.AccessController.getContext;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Challenge} and makes a call to the
@@ -53,6 +46,11 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
     public void onBindViewHolder(final ViewHolder holder, int position) {
         //holder.mItem = mValues.get(position);
         Challenge challenge = mValues.get(position);
+
+        if (!challenge.getCompleted()) {
+            holder.mView.setVisibility(View.GONE);
+            return;
+        }
         if (challenge.getCompleted()) {
             holder.mView.findViewById(R.id.img_challenge_tile_background).setVisibility(View.VISIBLE);
         } else {
