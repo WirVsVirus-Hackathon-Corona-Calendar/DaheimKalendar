@@ -48,7 +48,7 @@ public class ChallengeRecyclerViewAdapter extends RecyclerView.Adapter<Challenge
         Challenge challenge = mValues.get(position);
 
         if (!challenge.getCompleted()) {
-            holder.mView.setVisibility(View.GONE);
+            holder.mView.findViewById(R.id.item_title).setVisibility(View.GONE);
             return;
         }
         if (challenge.getCompleted()) {
