@@ -43,7 +43,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="your_challenge_today">Dein heutiges Abenteuer:</string>
     <string name="challenge_not_completed_yet">Du hast diese Herausforderung noch nicht beendet!</string>
-    <string name="no_challenge_for_today">Für heute hast du alle Herausforderungen erledigt, komm doch morgen nochmal vorbei!</string>
+    <string name="no_challenge_for_today">Für heute hast du alle Herausforderungen erledigt. Morgen geht es weiter!</string>
 
     <string name="titel_material">Das brauchst du:</string>
     <string name="titel_instruction">Anleitung:</string>
