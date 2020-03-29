@@ -6,8 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/itim</item>
-        <item name="fontFamily">@font/itim</item>
+        <item name="android:fontFamily">@font/merriweather</item>
+        <item name="fontFamily">@font/merriweather</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
