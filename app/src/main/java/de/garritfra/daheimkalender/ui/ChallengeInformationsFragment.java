@@ -26,7 +26,6 @@ import de.garritfra.daheimkalender.ImageStorage;
 import de.garritfra.daheimkalender.R;
 import de.garritfra.daheimkalender.model.Challenge;
 import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelActivity;
-import de.garritfra.daheimkalender.ui.graphicnovel.GraphicNovelAfterFragment;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -107,7 +106,7 @@ public class ChallengeInformationsFragment extends Fragment {
         txt_headlineMaterial.setText(R.string.titel_material);
 
         setupResourceFields(challenge.getMaterials());
-        setupInstructionFields(challenge.getMaterials());
+        setupInstructionFields(challenge.getTutorialSteps());
 
         TextView txt_headlineInstruction = view.findViewById(R.id.txt_headlineInstruction);
         txt_headlineInstruction.setText(R.string.titel_instruction);
