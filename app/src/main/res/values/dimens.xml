@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_margin">4dp</dimen>
+    <dimen name="challenge_field_min_height">50dp</dimen>
+    <dimen name="challenge_field_padding_left">10dp</dimen>
 </resources>
