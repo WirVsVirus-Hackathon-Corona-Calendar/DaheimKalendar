@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DaheimKalender</string>
+    <string name="app_name">Imf &amp; Firus</string>
     <string name="starte_heutige_challenge">Starte Challenge</string>
     <string name="alte_challenges">Alte Challenges</string>
     <string name="zurueck">Zurück</string>
@@ -21,7 +21,7 @@
     <string name="todays_challenge_title">Herausforderung</string>
     <string name="challenges_history_title">Tagebuch</string>
     <string name="settings_title">Einstellungen</string>
-    <string name="onboarding_title">Willkommen bei #Daheim - Der Corona Kalender...</string>
+    <string name="onboarding_title">Willkommen bei Imf &amp; Firus!</string>
     <string name="onboarding_age_check_title">Bitte wähle dein Alter</string>
     <string name="close_button">Button zum Verlassen des Screens</string>
     <string name="confirm_button">Bestätigen</string>
